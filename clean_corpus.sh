@@ -20,5 +20,5 @@ echo_ts "STARTING STAGE 2"
 ./remove_urls.sh stage1_out.txt > stage2_out.txt 2> errors.log
 echo_ts "FINISHED STAGE 2"
 echo_ts "STARTING STAGE 3"
-perl replace_num.pl < stage2_out.txt > stage3_out.txt 2> errors.log
+./replace_num.sh stage2_out.txt stage3_out.txt
 echo_ts "FINISHED STAGE 3"
