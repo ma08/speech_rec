@@ -5,7 +5,7 @@ import sys
 sample_folder = "/home/sourya4/pro/columbia/spring22/fund_sp_rec/datasets/microsoftspeechcorpusindianlanguages/te-in-Train/Audios/"
 def computer_folder_statistics(folder_name):
     # sample_path = "/home/sourya4/pro/columbia/spring22/fund_sp_rec/datasets/microsoftspeechcorpusindianlanguages/te-in-Train/Audios/000010013.wav"
-    folder_name = sample_folder
+    # folder_name = sample_folder
     #Iterate through all files in the folder that have .wav extension
     duration_seconds_list = []
     counter_files = 0
