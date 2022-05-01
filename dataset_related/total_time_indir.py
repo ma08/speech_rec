@@ -18,8 +18,8 @@ def computer_folder_statistics(folder_name):
             counter_files += 1
             if(counter_files%1000 == 0):
                 print(f"{counter_files} files processed")
-            if(counter_files>=5000):
-                break
+            # if(counter_files>=5000):
+                # break
 
     num_files = len(duration_seconds_list)
     total_time = sum(duration_seconds_list)
