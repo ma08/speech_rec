@@ -6,10 +6,17 @@ function sox_duration_total
     echo ""
     return
   fi
+  COUNTER=$(( 0 ))
   for i in "$@"; do
     val=`soxi -d "$i"`
+    (( COUNTER++ ))
+    if [ $(( $COUNTER % 1000 )) -eq 0 ] ; then
+    	echo "$COUNTER done so far"
+        #echo "Your number is divisible by 5"
+    fi
     # echo "$val | $i"
   done
+  echo "Total $COUNTER files"
   soxi -D "$@" | python3 -c "import sys;print(\"\ntotal sec:    \" +str( sum(float(l) for l in sys.stdin)))"
   soxi -D "$@" | python3 -c "import sys;print(\"total minutes:    \" +str( sum(float(l) for l in sys.stdin)/60 ))"
   soxi -D "$@" | python3 -c "import sys;print(\"\nmin sec:    \" +str( min(float(l) for l in sys.stdin)))"
