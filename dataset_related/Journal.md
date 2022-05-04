@@ -157,6 +157,8 @@ Average time: 6.182884228265511
 
 ### IITM ASR Challenge (https://sites.google.com/view/indian-language-asrchallenge/home?authuser=2)
 
+
+All 3 folders (dev, train, eval) point to same "Audio" folder for audio wav files in wav.scp
 #### Downloading the files
 sk5057@speech-rec-vm:~/asr_project/datasets$ wget -r --user=asrchallenge --password=asr_iitm123 -U "" https://asr.iitm.ac.in/downloads/Indian_Language_Database/Tamil/
 --2022-05-01 08:07:51--  https://asr.iitm.ac.in/downloads/Indian_Language_Database/Tamil/
@@ -196,7 +198,7 @@ Bit Rate       : 256k
 Sample Encoding: 16-bit Signed Integer PCM
 
 
-####Tamil Eval
+#### Tamil Eval
 sk5057@speech-rec-vm:~/asr_project/datasets$ python3 -u dataset_repo_folder/total_time_in_dir.py asr.iitm.ac.in/downloads/Indian_Language_Database/Tamil/Audio_eval | tee dataset_repo_folder/logs/asriitm_Tamil_Audio_eval_dur.log
 Total number of files: 219
 Total time in seconds: 15306.732000000007
@@ -226,7 +228,13 @@ Maximum time: 20.34
 Average time: 6.18333645717714
 
 
+### Data perparation (for all)
+
+- text
+  - if you have speaker information in your setup, you should make the speaker-id a prefix of the utterance id; this is important for reasons relating to the sorting of these files
+
 ### Tedlium
+
 sk5057@speech-rec-vm:~/kaldi/egs/tedlium/s5_r3$ ./run.sh 
 ----------------------- Stage 1 begin: prepare data ---------------------------
 utils/validate_data_dir.sh: Successfully validated data-directory data/dev.orig
@@ -273,6 +281,7 @@ sk5057@speech-rec-vm:~/kaldi/egs/tedlium/s5_r3/data/test$
 dev: 507
 train: 268263
 test: 1155
+
 
 
 
