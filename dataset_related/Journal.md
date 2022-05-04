@@ -72,21 +72,9 @@ sk5057@speech-rec-vm:~/asr_project/datasets/openslr_tamil$ unzip ta_in_female.zi
 sk5057@speech-rec-vm:~/asr_project/datasets$ python3 dataset_repo_folder/total_time_indir.py microsoftspeechcorpusindianlanguages/ta-in-Train/Audios/ | tee dataset_repo_folder/microsoftspeechcorpusindianlanguages_ta_duration.log 
 
 1000 files processed
-2000 files processed
-3000 files processed
-4000 files processed
-5000 files processed
 .
 .
 .
-31000 files processed
-32000 files processed
-33000 files processed
-34000 files processed
-35000 files processed
-36000 files processed
-37000 files processed
-38000 files processed
 39000 files processed
 Total number of files: 39131
 Total time in seconds: 144002.90806199904
@@ -130,6 +118,7 @@ Average time: 5.84525156183057
 
 
 ### OpenSLR Tamil
+As max is 17 seconds, no data split is needed
 #### Male
 sk5057@speech-rec-vm:~/asr_project/datasets$ python3 -u dataset_repo_folder/total_time_in_dir.py openslr_tamil/ta_in_male/ | tee dataset_repo_folder/logs/openslr_tamil_male_dur.log
 1000 files processed
@@ -173,38 +162,7 @@ sk5057@speech-rec-vm:~/asr_project/datasets$ wget -r --user=asrchallenge --passw
 --2022-05-01 08:07:51--  https://asr.iitm.ac.in/downloads/Indian_Language_Database/Tamil/
 Resolving asr.iitm.ac.in (asr.iitm.ac.in)... 103.158.43.230
 Connecting to asr.iitm.ac.in (asr.iitm.ac.in)|103.158.43.230|:443... connected.
-HTTP request sent, awaiting response... 401 Unauthorized
-Authentication selected: Basic realm="Restricted Content"
-Reusing existing connection to asr.iitm.ac.in:443.
-HTTP request sent, awaiting response... 200 OK
-Length: 1683 (1.6K) [text/html]
-Saving to: ‘asr.iitm.ac.in/downloads/Indian_Language_Database/Tamil/index.html’
 
-asr.iitm.ac.in/download 100%[============================>]   1.64K  --.-KB/s    in 0s      
-
-2022-05-01 08:07:52 (63.1 MB/s) - ‘asr.iitm.ac.in/downloads/Indian_Language_Database/Tamil/index.html’ saved [1683/1683]
-
-Loading robots.txt; please ignore errors.
---2022-05-01 08:07:52--  https://asr.iitm.ac.in/robots.txt
-Reusing existing connection to asr.iitm.ac.in:443.
-HTTP request sent, awaiting response... 404 Not Found
-2022-05-01 08:07:53 ERROR 404: Not Found.
-
---2022-05-01 08:07:53--  https://asr.iitm.ac.in/icons/blank.gif
-Reusing existing connection to asr.iitm.ac.in:443.
-HTTP request sent, awaiting response... 200 OK
-Length: 148 [image/gif]
-Saving to: ‘asr.iitm.ac.in/icons/blank.gif’
-
-asr.iitm.ac.in/icons/bl 100%[============================>]     148  --.-KB/s    in 0s      
-
-2022-05-01 08:07:53 (30.9 MB/s) - ‘asr.iitm.ac.in/icons/blank.gif’ saved [148/148]
-
---2022-05-01 08:07:53--  https://asr.iitm.ac.in/downloads/Indian_Language_Database/Tamil/?C=N;O=D
-Reusing existing connection to asr.iitm.ac.in:443.
-HTTP request sent, awaiting response... 200 OK
-Length: 1683 (1.6K) [text/html]
-.
 .
 .
 
@@ -255,25 +213,9 @@ Average time: 69.89375342465756
 ###Mozilla Common Voice Tamil
 sk5057@speech-rec-vm:~/asr_project/datasets$ python3 -u  dataset_repo_folder/total_time_indir.py cv-corpus-8.0-2022-01-19/ta/wavclips/ | tee dataset_repo_folder/cv-corpus-8.0-2022-01-19_ta_duration.log
 1000 files processed
-2000 files processed
-3000 files processed
-4000 files processed
-5000 files processed
-6000 files processed
-7000 files processed
-8000 files processed
-9000 files processed
-10000 files processed
 .
 .
 .
-11000 files processed
-125000 files processed
-126000 files processed
-193000 files processed
-194000 files processed
-195000 files processed
-196000 files processed
 197000 files processed
 Total number of files: 197733
 Total time in seconds: 1222649.6676870075
