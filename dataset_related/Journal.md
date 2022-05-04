@@ -96,6 +96,10 @@ Minimum time: 0.325
 Maximum time: 18.57
 Average time: 3.680021161278757
 
+As max is only 18.57, we need not split for this dataset
+- text: the transcription as it is
+- segments
+
 
 sk5057@speech-rec-vm:~/dataset/microsoftspeechcorpusindianlanguages/ta-in-Train/Audios$ soxi 001990001.wav 
 
