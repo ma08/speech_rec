@@ -25,6 +25,7 @@ import string
 print(string.punctuation)            
 
 # Function for removing punctuation
+#https://www.geeksforgeeks.org/python-preprocessing-of-tamil-text/
 def punctuation_remove(text_data): 
     # Appending non punctuated words
     punctuation ="".join([t for t in text_data if t not in string.punctuation])  
@@ -34,10 +35,14 @@ def remove_punctuation_mozillacv(folder_path):
     for partition in "train", "dev", "test":
         file_name = os.path.join(folder_path, f"{partition}_transcription.txt")
         with open(file_name, "r") as f:
-            lines = [line.rstrip().split(' ') for line in f]
-            processed_lines = [f"{line[0]} {punctuation_remove(line)}" for line in lines]
-            for i in range(len(lines)):
-                print(f"\n----\noriginal: {lines[i][1]}\nprocessed: {processed_lines[i][1]}\n----")
+            lines = [line.rstrip().split('\t') for line in f]
+            processed_lines = [f"{line[0]} {punctuation_remove(line[1])}" for line in lines]
+            # processed_lines = [f"{punctuation_remove(line[1])}" for line in lines]
+            with open(os.path.join(folder_path,f"{partition}_text_processed.txt"), 'w') as file:
+                file.write('\n'.join(processed_lines))
+            # for i in range(len(lines)):
+                # print(f"\n----\n{lines[i][1]}\n{processed_lines[i]}\n----")
+                # print(f"\n----\noriginal: {lines[i]}\nprocessed: {processed_lines[i]}\n----")
 
 
 
@@ -47,6 +52,6 @@ def remove_punctuation_mozillacv(folder_path):
 if(len(sys.argv)>1):
     pass
 else:
-    create_formatted_files_mozillacv(mozillacv_tamil_path)
-    # remove_punctuation_mozillacv(mozillacv_tamil_path)
+    # create_formatted_files_mozillacv(mozillacv_tamil_path)
+    remove_punctuation_mozillacv(mozillacv_tamil_path)
 
