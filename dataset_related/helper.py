@@ -16,10 +16,30 @@ def create_formatted_files_mozillacv(folder_path):
             # file_path = lines[0][1]
             # sentence = lines[0][2]
             # filename_stem = Path(file_path).stem
-            output_lines = [f"{Path(line[1]).stem} {line[2]}" for line in lines]
+            output_lines = [f"{Path(line[1]).stem}\t{line[2]}" for line in lines]
 
             with open(os.path.join(folder_path,f"{partition}_transcription.txt"), 'w') as file:
                 file.write('\n'.join(output_lines))
+import string     
+# Printing Inbuilt punctuation function
+print(string.punctuation)            
+
+# Function for removing punctuation
+def punctuation_remove(text_data): 
+    # Appending non punctuated words
+    punctuation ="".join([t for t in text_data if t not in string.punctuation])  
+    return punctuation
+
+def remove_punctuation_mozillacv(folder_path):
+    for partition in "train", "dev", "test":
+        file_name = os.path.join(folder_path, f"{partition}_transcription.txt")
+        with open(file_name, "r") as f:
+            lines = [line.rstrip().split(' ') for line in f]
+            processed_lines = [f"{line[0]} {punctuation_remove(line)}" for line in lines]
+            for i in range(len(lines)):
+                print(f"\n----\noriginal: {lines[i][1]}\nprocessed: {processed_lines[i][1]}\n----")
+
+
 
 
 
@@ -28,4 +48,5 @@ if(len(sys.argv)>1):
     pass
 else:
     create_formatted_files_mozillacv(mozillacv_tamil_path)
+    # remove_punctuation_mozillacv(mozillacv_tamil_path)
 
