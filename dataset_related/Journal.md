@@ -159,6 +159,8 @@ Average time: 6.182884228265511
 
 
 All 3 folders (dev, train, eval) point to same "Audio" folder for audio wav files in wav.scp
+- 1 percent for eval and dev
+
 #### Downloading the files
 sk5057@speech-rec-vm:~/asr_project/datasets$ wget -r --user=asrchallenge --password=asr_iitm123 -U "" https://asr.iitm.ac.in/downloads/Indian_Language_Database/Tamil/
 --2022-05-01 08:07:51--  https://asr.iitm.ac.in/downloads/Indian_Language_Database/Tamil/
@@ -231,7 +233,9 @@ Average time: 6.18333645717714
 ### Data perparation (for all)
 
 - text
-  - if you have speaker information in your setup, you should make the speaker-id a prefix of the utterance id; this is important for reasons relating to the sorting of these files
+  - if you have speaker information in your setup, you should make the speaker-id a prefix of the utterance id; this is important for reasons relating to the sorting of these files (We are not using any speaker stuff...)
+  - created test, dev, and test partition
+    - Remove punctuation of mozillacv tamil
 
 ### Tedlium
 
