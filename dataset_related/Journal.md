@@ -278,3 +278,55 @@ Total time in hours: 339.6249076908354
 Minimum time: 0.036
 Maximum time: 20.34
 Average time: 6.18333645717714
+
+
+### Tedlium
+sk5057@speech-rec-vm:~/kaldi/egs/tedlium/s5_r3$ ./run.sh 
+----------------------- Stage 1 begin: prepare data ---------------------------
+utils/validate_data_dir.sh: Successfully validated data-directory data/dev.orig
+utils/validate_data_dir.sh: Successfully validated data-directory data/test.orig
+extend_segment_times.py: extended 268263 segments; fixed 183022 overlapping segments
+utils/validate_data_dir.sh: Successfully validated data-directory data/train.orig
+utils/data/get_utt2dur.sh: working out data/dev.orig/utt2dur from data/dev.orig/segments
+utils/data/get_utt2dur.sh: computed data/dev.orig/utt2dur
+utils/data/modify_speaker_info.sh: copied data from data/dev.orig to data/dev, number of speakers changed from 8 to 38
+utils/validate_data_dir.sh: Successfully validated data-directory data/dev
+utils/data/get_utt2dur.sh: working out data/test.orig/utt2dur from data/test.orig/segments
+utils/data/get_utt2dur.sh: computed data/test.orig/utt2dur
+utils/data/modify_speaker_info.sh: copied data from data/test.orig to data/test, number of speakers changed from 11 to 59
+utils/validate_data_dir.sh: Successfully validated data-directory data/test
+utils/data/get_utt2dur.sh: working out data/train.orig/utt2dur from data/train.orig/segments
+utils/data/get_utt2dur.sh: computed data/train.orig/utt2dur
+utils/data/modify_speaker_info.sh: copied data from data/train.orig to data/train, number of speakers changed from 2351 to 10334
+utils/validate_data_dir.sh: Successfully validated data-directory data/train
+----------------------- Stage 1 end: prepare data ---------------------------
+
+
+sk5057@speech-rec-vm:~/kaldi/egs/tedlium/s5_r3/data$ cd train
+sk5057@speech-rec-vm:~/kaldi/egs/tedlium/s5_r3/data/train$ ls
+glm  reco2file_and_channel  segments  spk2utt  stm  text  utt2spk  wav.scp
+sk5057@speech-rec-vm:~/kaldi/egs/tedlium/s5_r3/data/train$ vim wav.scp 
+sk5057@speech-rec-vm:~/kaldi/egs/tedlium/s5_r3/data/train$ vim utt2spk 
+sk5057@speech-rec-vm:~/kaldi/egs/tedlium/s5_r3/data/train$ vim text 
+sk5057@speech-rec-vm:~/kaldi/egs/tedlium/s5_r3/data/train$ vim spk2utt 
+sk5057@speech-rec-vm:~/kaldi/egs/tedlium/s5_r3/data/train$ vim segments 
+sk5057@speech-rec-vm:~/kaldi/egs/tedlium/s5_r3/data/train$ 
+
+sk5057@speech-rec-vm:~/kaldi/egs/tedlium/s5_r3/data/dev$ wc -l text 
+507 text
+sk5057@speech-rec-vm:~/kaldi/egs/tedlium/s5_r3/data/dev$ cd ..
+sk5057@speech-rec-vm:~/kaldi/egs/tedlium/s5_r3/data$ cd train
+sk5057@speech-rec-vm:~/kaldi/egs/tedlium/s5_r3/data/train$ wc -l text 
+268263 text
+sk5057@speech-rec-vm:~/kaldi/egs/tedlium/s5_r3/data/train$ cd ..
+sk5057@speech-rec-vm:~/kaldi/egs/tedlium/s5_r3/data$ cd test
+sk5057@speech-rec-vm:~/kaldi/egs/tedlium/s5_r3/data/test$ wc -l text 
+1155 text
+sk5057@speech-rec-vm:~/kaldi/egs/tedlium/s5_r3/data/test$ 
+
+dev: 507
+train: 268263
+test: 1155
+
+
+
