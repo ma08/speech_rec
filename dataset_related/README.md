@@ -1,5 +1,5 @@
 # Audio and Transcript Preprocessing steps
-- Convert all files to `.wav` format : [convert_mp3towav.sh](convert_mp3towav.sh))
+- Convert all files to `.wav` format : [convert_mp3towav.sh](convert_mp3towav.sh)
   - Sample Rate    : 16000
   - Precision      : 16-bit
   - Sample Encoding: 16-bit Signed Integer PCM
@@ -88,7 +88,7 @@ sk5057@speech-rec-vm:~/kaldi/egs/tamil_telugu_proj/s5_r3/db/microsoft_tamil$ tre
 <!-- ![](pics/ms_kaldi_files.png) -->
 - Combine the files into a single dataset ensuring unique ids for files, utterances, speakers etc. [merge_datasets.py](merge_datasets.py)
   - Investigated use of [Unified Parser](unifiedparser_original/) to create the pronunciations for the lexicon but didn't have success in fixing the segmentation fault after spending a lot of time. TODO: Use gdb and tools to better debug.
-  - Create lexicon with the pronunciation - [lexicon.txt](tamil_db_files/kaldi_db/combined_transcription/lexicon.txt)) using [create_lexicon.py](create_lexicon.py) by simple splitting words into unicode characters
+  - Create lexicon with the pronunciation - [lexicon.txt](tamil_db_files/kaldi_db/combined_transcription/lexicon.txt) using [create_lexicon.py](create_lexicon.py) by simple splitting words into unicode characters
 ### Snippet of lexicon (combined dataset)
 ```
 ஈடுபடவில்லையென்றும்	ஈ டு ப ட வி ல் லை யெ ன் று ம்
