@@ -1,7 +1,7 @@
 # Main Preprocessing Steps
 - Convert numbers to words
   - Example - Tamil: 23 -> இருபத்து மூன்று
-  - Example - Telugu: 1 -> ఒకటిఇరువై మూడు 
+  - Example - Telugu: 23 -> ఒకటిఇరువై మూడు 
   - Library used - indic-num2words 
 - Remove urls (language model corpus)
 - Remove paranthases and content inside
