@@ -89,6 +89,24 @@ sk5057@speech-rec-vm:~/kaldi/egs/tamil_telugu_proj/s5_r3/db/microsoft_tamil$ tre
 - Combine the files into a single dataset ensuring unique ids for files, utterances, speakers etc. [merge_datasets.py](merge_datasets.py)
   - Investigated use of [Unified Parser](unifiedparser_original/) to create the pronunciations for the lexicon but didn't have success in fixing the segmentation fault after spending a lot of time. TODO: Use gdb and tools to better debug.
   - Create lexicon with the pronunciation - [lexicon.txt](tamil_db_files/kaldi_db/combined_transcription/lexicon.txt)) using [create_lexicon.py](create_lexicon.py) by simple splitting words into unicode characters
+### Snippet of lexicon (combined dataset)
+```
+ஈடுபடவில்லையென்றும்	ஈ டு ப ட வி ல் லை யெ ன் று ம்
+கேக்கறப்ப	கே க் க ற ப் ப
+லட்சுமீகரம்	ல ட் சு மீ க ர ம்
+கூறியவாறு	கூ றி ய வா று
+மானத்தின்	மா ன த் தி ன்
+பட்டினியை	ப ட் டி னி யை
+உங்களுக்கும்	உ ங் க ளு க் கு ம்
+ஜார்ஜைத்	ஜா ர் ஜை த்
+கண்ணிரும்	க ண் ணி ரு ம்
+தவளைக்குத்	த வ ளை க் கு த்
+சித்ரான்ன	சி த் ரா ன் ன
+எஸ்கிமோக்களின்	எ ஸ் கி மோ க் க ளி ன்
+மரணத்தின்	ம ர ண த் தி ன்
+எண்டெட்னு	எ ண் டெ ட் னு
+```
+### Kaldi files for combined dataset
 ```
 sk5057@speech-rec-vm:~/kaldi/egs/tamil_telugu_proj/s5_r3/db/combined_transcription$ tree -I '*.wav|*.tsv|LICENSE'
 .
