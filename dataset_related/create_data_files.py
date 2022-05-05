@@ -1,3 +1,7 @@
+import sys
+sys.path.append('../')
+import print_timestamp_module
+print = print_timestamp_module.print_timestamp
 import os
 import sox
 #https://github.com/rabitt/pysox
@@ -28,7 +32,7 @@ def get_fstem_dur_secs(fstems, dataset_name, audio_folder):
 
 def get_wavscp_lines(fstems, dataset_name, audio_rel_folder):
     if(dataset_name == "mozilla"):
-        wavscp_lines  = [f"{fstem} {audio_rel_folder}/{fstem.split('-')[1]}.wav" for fstem in file_stems]
+        wavscp_lines  = [f"{fstem} {audio_rel_folder}/{fstem.split('-')[1]}.wav" for fstem in fstems]
     else:
         wavscp_lines  = [f"{fstem} {audio_rel_folder}/{fstem}.wav" for fstem in fstems]
     
@@ -93,4 +97,5 @@ else:
     mozilla_path = "~/kaldi/egs/tamil_telugu_proj/s5_r3/db/mozillacv_tamil"
     mozilla_dataset_name = "mozilla"
     create_files(mozilla_path, mozilla_dataset_name)
+    print("finished")
 
