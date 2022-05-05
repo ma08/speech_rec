@@ -25,6 +25,7 @@ def get_utt2spk_lines(fstems, dataset_name):
 This is to create data files for the input folder when there are no splits needed for the audio files
 """
 def create_files(folder_path, dataset_name):
+    folder_path_input = folder_path
     folder_path = os.path.expanduser(folder_path)
     # sample_path = "/home/sourya4/pro/columbia/spring22/fund_sp_rec/datasets/microsoftspeechcorpusindianlanguages/te-in-Train/Audios/000010013.wav"
     # folder_name = sample_folder
@@ -35,11 +36,11 @@ def create_files(folder_path, dataset_name):
         target_folder = f"{folder_path}/transcription/{partition}"
         Path(target_folder).mkdir(parents=True, exist_ok=True)
         transcript_file = f"{folder_path}/{partition}_transcription.txt"
-        segment_file = f"{folder_path}/{partition}/segments"
-        utt2spk_file = f"{folder_path}/{partition}/utt2spk"
-        utt2dur_file = f"{folder_path}/{partition}/utt2dur"
+        segment_file = f"{folder_path}/transcription/{partition}/segments"
+        utt2spk_file = f"{folder_path}/transcription/{partition}/utt2spk"
+        utt2dur_file = f"{folder_path}/transcription/{partition}/utt2dur"
         wavscp_lines = []
-        wav_scp_file = f"{folder_path}/{partition}/wav.scp"
+        wav_scp_file = f"{folder_path}/transcrition/{partition}/wav.scp"
         audio_folder = f"{folder_path}/Audio"
         audo_rel_folder = f"~/{os.path.relpath(audio_folder, home_path)}"
 
