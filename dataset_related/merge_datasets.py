@@ -23,14 +23,14 @@ def merge_datasets(folder_path):
             with open(target_file, 'wb') as wfd:
                 for dataset in "asriitm_tamil", "mozillacv_tamil", "microsoft_tamil", "openslr_tamil":
                     print(f"Running on {dataset} {partition} {file_name}")
-                    current_input_file = f"{folder_path}/{dataset}/{partition}/transcription/{file_name}"
+                    current_input_file = f"{folder_path}/{dataset}/transcription/{partition}/{file_name}"
                     with open(current_input_file,'rb') as fd:
                         shutil.copyfileobj(fd, wfd)
 
 if(len(sys.argv)>1):
     merge_datasets(sys.argv[1])
 else:
-    db_path = "~/kaldi/egs/tamil_telugu_proj/s5_r3/db/"
+    db_path = "~/kaldi/egs/tamil_telugu_proj/s5_r3/db"
     merge_datasets(db_path)
     # microsoft_dataset_name = "microsoft"
     print("finished")
