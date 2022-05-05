@@ -31,6 +31,7 @@ def create_files(folder_path, dataset_name):
     # folder_name = sample_folder
     #Iterate through all files in the folder that have .wav extension
     for partition in "train", "dev", "test":
+        print(f"Running on {dataset_name} {partition}")
         counter_files = 0
         #Open and write to file line by line
         target_folder = f"{folder_path}/transcription/{partition}"
@@ -68,7 +69,10 @@ def create_files(folder_path, dataset_name):
 if(len(sys.argv)>1):
     create_files(sys.argv[1])
 else:
-    openslr_path = "~/kaldi/egs/tamil_telugu_proj/s5_r3/db/openslr_tamil"
-    openslr_dataset_name = "openslr"
-    create_files(openslr_path, openslr_dataset_name)
+    # openslr_path = "~/kaldi/egs/tamil_telugu_proj/s5_r3/db/openslr_tamil"
+    # openslr_dataset_name = "openslr"
+    #create_files(openslr_path, openslr_dataset_name)
+    mozilla_path = "~/kaldi/egs/tamil_telugu_proj/s5_r3/db/mozillacv_tamil"
+    mozilla_dataset_name = "mozilla"
+    create_files(mozilla_path, mozilla_dataset_name)
 
