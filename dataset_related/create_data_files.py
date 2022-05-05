@@ -94,8 +94,11 @@ else:
     # openslr_path = "~/kaldi/egs/tamil_telugu_proj/s5_r3/db/openslr_tamil"
     # openslr_dataset_name = "openslr"
     #create_files(openslr_path, openslr_dataset_name)
-    mozilla_path = "~/kaldi/egs/tamil_telugu_proj/s5_r3/db/mozillacv_tamil"
-    mozilla_dataset_name = "mozilla"
-    create_files(mozilla_path, mozilla_dataset_name)
+    # mozilla_path = "~/kaldi/egs/tamil_telugu_proj/s5_r3/db/mozillacv_tamil"
+    # mozilla_dataset_name = "mozilla"
+    # create_files(mozilla_path, mozilla_dataset_name)
+    microsoft_path = "~/kaldi/egs/tamil_telugu_proj/s5_r3/db/microsoft_tamil"
+    microsoft_dataset_name = "microsoft"
+    create_files(microsoft_path, microsoft_dataset_name)
     print("finished")
 
