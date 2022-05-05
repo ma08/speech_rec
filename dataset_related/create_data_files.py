@@ -25,6 +25,7 @@ def get_utt2spk_lines(fstems, dataset_name):
 This is to create data files for the input folder when there are no splits needed for the audio files
 """
 def create_files(folder_path, dataset_name):
+    folder_path = os.path.expanduser(folder_path)
     # sample_path = "/home/sourya4/pro/columbia/spring22/fund_sp_rec/datasets/microsoftspeechcorpusindianlanguages/te-in-Train/Audios/000010013.wav"
     # folder_name = sample_folder
     #Iterate through all files in the folder that have .wav extension
