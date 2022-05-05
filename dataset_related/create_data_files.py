@@ -39,8 +39,7 @@ def create_files(folder_path, dataset_name):
         segment_file = f"{folder_path}/transcription/{partition}/segments"
         utt2spk_file = f"{folder_path}/transcription/{partition}/utt2spk"
         utt2dur_file = f"{folder_path}/transcription/{partition}/utt2dur"
-        wavscp_lines = []
-        wav_scp_file = f"{folder_path}/transcrition/{partition}/wav.scp"
+        wav_scp_file = f"{folder_path}/transcription/{partition}/wav.scp"
         audio_folder = f"{folder_path}/Audio"
         audo_rel_folder = f"~/{os.path.relpath(audio_folder, home_path)}"
 
