@@ -68,7 +68,7 @@ def create_files(folder_path, dataset_name):
 if(len(sys.argv)>1):
     create_files(sys.argv[1])
 else:
-    openslr_path = "~/kaldi/egs/tamil_telugu_proj/s5_r3/db"
+    openslr_path = "~/kaldi/egs/tamil_telugu_proj/s5_r3/db/openslr_tamil"
     openslr_dataset_name = "openslr"
     create_files(openslr_path, openslr_dataset_name)
 
