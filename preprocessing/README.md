@@ -1,12 +1,14 @@
 # Main Preprocessing Steps
-- Convert numbers to words
+- Convert numbers to words (replace_num.sh)[replace_num.sh]
   - Example - Tamil: 23 -> இருபத்து மூன்று
   - Example - Telugu: 23 -> ఒకటిఇరువై మూడు 
-  - Library used - indic-num2words 
-- Remove urls (language model corpus)
-- Remove paranthases and content inside
+  - Library used - (indic-num2words)[https://github.com/sutariyaraj/indic-num2words] 
+- Remove urls (language model corpus) (remove_urls.sh)[remove_urls.sh]
+- Remove parentheses and content inside (remove_parantheses.awk)[remove_parantheses.awk]
 - Remove all other punctuation
   - Transcript: Only whitespace
   - Language model corpus: Only whitespace and periods.
   - Ensure atmost single whitespsace
-- Remove non-Tamil/Telugu tokens (english words) using unicode range check
+- No empty lines
+- Remove non-Tamil/Telugu tokens (english words) using unicode range check for legal characters
+- TODO: Handle dates, unit of measurements
