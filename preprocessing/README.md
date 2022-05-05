@@ -1,0 +1,12 @@
+# Main Preprocessing Steps
+- Convert numbers to words
+  - Example - Tamil: 23 -> இருபத்து மூன்று
+  - Example - Telugu: 1 -> ఒకటిఇరువై మూడు 
+  - Library used - indic-num2words 
+- Remove urls (language model corpus)
+- Remove paranthases and content inside
+- Remove all other punctuation
+  - Transcript: Only whitespace
+  - Language model corpus: Only whitespace and periods.
+  - Ensure atmost single whitespsace
+- Remove non-Tamil/Telugu tokens (english words) using unicode range check
