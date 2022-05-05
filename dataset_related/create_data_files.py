@@ -45,7 +45,6 @@ def create_files(folder_path, dataset_name):
         with open(transcript_file, "r") as t_file:
             #Creating 'text' file by copying
             shutil.copyfile(transcript_file, f"{target_folder}/text")
-            Path(transcript_file).
             file_stems = [line.rstrip().split(' ')[0] for line in t_file]
             utt2spk_lines = get_utt2spk_lines(file_stems, dataset_name)
             wav_file = f"{audio_folder}/{fstem}.wav"
