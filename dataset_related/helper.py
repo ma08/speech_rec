@@ -67,6 +67,33 @@ def remove_punctuation_mozillacv(folder_path):
                 # print(f"\n----\n{lines[i][1]}\n{processed_lines[i]}\n----")
                 # print(f"\n----\noriginal: {lines[i]}\nprocessed: {processed_lines[i]}\n----")
 
+def fix_asriitm_wavscp_path(asriitm_folder_path):
+    folder_path_input = asriitm_folder_path
+    asriitm_folder_path = os.path.expanduser(asriitm_folder_path)
+    folder_path = f"{asriitm_folder_path}/transcription"
+    for partition in "train", "dev", "test":
+        current_wavscp_file = os.path.join(folder_path, f"{partition}/wav.scp")
+        file_name = os.path.join(folder_path, f"{partition}_text_processed.txt")
+        with open(current_wavscp_file, "r") as f:
+            delimiter = " "
+            if(partition == "train"):
+                split_lines = []
+                for line in f:
+                    if(len(line.split(" ")) == 2):
+                        split_lines.append(line.split(" "))
+                    else:
+                        split_lines.append(line.split("\t"))
+            else:
+                split_lines = [line.rstrip().split(delimiter) for line in f]
+
+            # for l in split_lines:
+                # if(len(l)!=2):
+                    # print(f"\n--{partition}--\n{l}\n----")
+            # print(split_lines[0])
+            processed_lines = [f"{sp_line[0]} {folder_path_input}/{sp_line[1]}" for sp_line in split_lines]
+        with open(current_wavscp_file, 'w') as file:
+            file.write('\n'.join(processed_lines))
+
 
 
 
@@ -76,5 +103,7 @@ if(len(sys.argv)>1):
     pass
 else:
     #create_formatted_files_mozillacv(mozillacv_tamil_path)
-    remove_punctuation_mozillacv(mozillacv_tamil_path)
+    # remove_punctuation_mozillacv(mozillacv_tamil_path)
+    fix_asriitm_wavscp_path("~/kaldi/egs/tamil_telugu_proj/s5_r3/db/asriitm_tamil")
+    # fix_asriitm_wavscp_path("dataset_files/iitm_asr_tamil")
 
