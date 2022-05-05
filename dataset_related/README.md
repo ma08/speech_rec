@@ -16,12 +16,79 @@ Average time: 6.18333645717714
 ```
 - Split each dataset into partitions of `dev, test, train` [split_dataset.py](split_dataset.py)
 - Create the necessary kaldi files for each dataset [create_data_files.py](create_data_files.py)
-![](pics/mozilla_kaldi_files.png)
-![](pics/ms_kaldi_files.png)
+### Mozilla example
+```
+sk5057@speech-rec-vm:~/kaldi/egs/tamil_telugu_proj/s5_r3/db/mozillacv_tamil$ tree -I '*.wav|*.txt|*.tsv|LICENSE'
+.
+├── Audio
+└── transcription
+    ├── dev
+    │   ├── segments
+    │   ├── spk2utt
+    │   ├── text
+    │   ├── utt2dur
+    │   ├── utt2spk
+    │   └── wav.scp
+    ├── test
+    │   ├── segments
+    │   ├── spk2utt
+    │   ├── text
+    │   ├── utt2dur
+    │   ├── utt2spk
+    │   └── wav.scp
+    └── train
+        ├── segments
+        ├── spk2utt
+        ├── text
+        ├── utt2dur
+        ├── utt2spk
+        └── wav.scp
+
+5 directories, 18 files
+```
+### Microsoft example
+```
+sk5057@speech-rec-vm:~/kaldi/egs/tamil_telugu_proj/s5_r3/db/microsoft_tamil$ tree -I '*.wav|*.txt|*.tsv|LICENSE'
+.
+├── Audio
+├── ta-in-Measurement
+│   └── Audios
+├── ta-in-Test
+│   └── Audios
+├── ta-in-Train
+│   └── Audios
+└── transcription
+    ├── dev
+    │   ├── segments
+    │   ├── spk2utt
+    │   ├── text
+    │   ├── utt2dur
+    │   ├── utt2spk
+    │   └── wav.scp
+    ├── test
+    │   ├── segments
+    │   ├── spk2utt
+    │   ├── text
+    │   ├── utt2dur
+    │   ├── utt2spk
+    │   └── wav.scp
+    └── train
+        ├── segments
+        ├── spk2utt
+        ├── text
+        ├── utt2dur
+        ├── utt2spk
+        └── wav.scp
+
+11 directories, 18 files
+
+```
+
+<!-- ![](pics/mozilla_kaldi_files.png) -->
+<!-- ![](pics/ms_kaldi_files.png) -->
 - Combine the files into a single dataset ensuring unique ids for files, utterances, speakers etc. [merge_datasets.py](merge_datasets.py)
   - Investigated use of [Unified Parser](unifiedparser_original/) to create the pronunciations for the lexicon but didn't have success in fixing the segmentation fault after spending a lot of time. TODO: Use gdb and tools to better debug.
   - Create lexicon with the pronunciation - [lexicon.txt](tamil_db_files/kaldi_db/combined_transcription/lexicon.txt)) using [create_lexicon.py](create_lexicon.py) by simple splitting words into unicode characters
-![](pics/combined_lexicon.png)
 ```
 sk5057@speech-rec-vm:~/kaldi/egs/tamil_telugu_proj/s5_r3/db/combined_transcription$ tree -I '*.wav|*.tsv|LICENSE'
 .
