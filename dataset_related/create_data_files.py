@@ -18,6 +18,24 @@ def get_utt2spk_lines(fstems, dataset_name):
     
     return utt2spk_lines
 
+def get_fstem_dur_secs(fstems, dataset_name, audio_folder):
+    if(dataset_name == "mozilla"):
+        fstem_dur_secs = [[fstem, sox.file_info.duration(f"{audio_folder}/{fstem.split('-')[1]}.wav")] for fstem in fstems]
+    else:
+        fstem_dur_secs = [[fstem, sox.file_info.duration(f"{audio_folder}/{fstem}.wav")] for fstem in fstems]
+    
+    return fstem_dur_secs
+
+def get_wavscp_lines(fstems, dataset_name, audio_rel_folder):
+    if(dataset_name == "mozilla"):
+        wavscp_lines  = [f"{fstem} {audio_rel_folder}/{fstem.split('-')[1]}.wav" for fstem in file_stems]
+    else:
+        wavscp_lines  = [f"{fstem} {audio_rel_folder}/{fstem}.wav" for fstem in fstems]
+    
+    return wavscp_lines
+
+
+
 
 
 
@@ -42,17 +60,17 @@ def create_files(folder_path, dataset_name):
         utt2dur_file = f"{folder_path}/transcription/{partition}/utt2dur"
         wav_scp_file = f"{folder_path}/transcription/{partition}/wav.scp"
         audio_folder = f"{folder_path}/Audio"
-        audo_rel_folder = f"~/{os.path.relpath(audio_folder, home_path)}"
+        audio_rel_folder = f"~/{os.path.relpath(audio_folder, home_path)}"
 
         with open(transcript_file, "r") as t_file:
             #Creating 'text' file by copying
             shutil.copyfile(transcript_file, f"{target_folder}/text")
             file_stems = [line.rstrip().split('\t')[0] for line in t_file]
             utt2spk_lines = get_utt2spk_lines(file_stems, dataset_name)
-            fstem_dur_secs = [[fstem, sox.file_info.duration(f"{audio_folder}/{fstem}.wav")] for fstem in file_stems]
+            fstem_dur_secs = get_fstem_dur_secs(file_stems, dataset_name, audio_folder)
             segment_lines = [f"{fstem_dur_sec[0]} {fstem_dur_sec[0]} 0.0 {fstem_dur_sec[1]}" for fstem_dur_sec in fstem_dur_secs]
             utt2dur_lines = [f"{fstem_dur_sec[0]} {fstem_dur_sec[1]}" for fstem_dur_sec in fstem_dur_secs]
-            wavscp_lines  = [f"{fstem} {audo_rel_folder}/{fstem}.wav" for fstem in file_stems]
+            wavscp_lines  = get_wavscp_lines(file_stems, dataset_name, audio_rel_folder)
 
             with open(segment_file, 'w') as file:
                 file.write('\n'.join(segment_lines))
