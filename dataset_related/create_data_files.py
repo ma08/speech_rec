@@ -1,7 +1,7 @@
 import sys
 sys.path.append('../')
 import print_timestamp_module
-print = print_timestamp_module.print_timestamp
+print = print_timestamp_module.timestamped_print
 import os
 import sox
 #https://github.com/rabitt/pysox
