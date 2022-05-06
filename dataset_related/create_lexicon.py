@@ -7,8 +7,17 @@ from pathlib import Path
 import re
 import helper
 
+sys.path.append('../')
+import print_timestamp_module
+print = print_timestamp_module.timestamped_print
 
 from tamil import utf8
+
+"""
+similar to phonemes
+"""
+def split_word_to_letters(tamil_word):
+	return utf8.get_letters(tamil_word)
 
 def get_lexicon(folder_path):
     folder_path_orig  = folder_path
@@ -32,7 +41,7 @@ def get_lexicon(folder_path):
     
     with open(f"{folder_path}/lexicon", 'w') as file:
         for tamil_word in tamil_word_set:
-            letters = utf8.get_letters(tamil_word)
+            letters = split_word_to_letters(tamil_word)
             file.write(f"{tamil_word}\t{' '.join(letters)}\n")
 
 
@@ -48,8 +57,11 @@ else:
     # fix_asriitm_wavscp_path("~/kaldi/egs/tamil_telugu_proj/s5_r3/db/asriitm_tamil")
     # fix_asriitm_wavscp_path("dataset_files/iitm_asr_tamil")
 
-    kaldi_db = "kaldi_db/combined_transcription/"
-    get_lexicon(kaldi_db)
+    # kaldi_db = "kaldi_db/combined_transcription/"
+    # get_lexicon(kaldi_db)
+
+	print(f"print(split_word_to_letters('நட‌க்க')): {split_word_to_letters('நட‌க்க')}")
+	# print(split_word_to_letters("நட‌க்க"))
     #remove_punctuation_combined(kaldi_db)
 
 

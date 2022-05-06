@@ -2,6 +2,10 @@ import os
 import sys
 import random
 
+sys.path.append('../')
+import print_timestamp_module
+print = print_timestamp_module.timestamped_print
+
 from pathlib import Path
 
 import string     
@@ -73,7 +77,7 @@ def fix_multiple_whitespace(input_text, isunicode_whitespace=True):
 # print(string.punctuation)            
 
 # Function for removing punctuation
-def punctuation_remove(text_data): 
+def punctuation_and_others_remove(text_data): 
     # Appending non punctuated words
     '“”‘’‚◯·—–'
     char_list = [
@@ -89,6 +93,7 @@ def punctuation_remove(text_data):
         '•', #U+2022 : BULLET {black small circle},
         '…', #U+2026 : HORIZONTAL ELLIPSIS {three dot leader},
         '″', #U+2033 : DOUBLE PRIME {seconds, inches}
+        '\u200c', #U+200c : ZERO WIDTH NON-JOINER {zero-width non-joiner}
     ]
     punc_char_string = string.punctuation+"".join(char_list)
     punctuation ="".join([t for t in text_data if t not in punc_char_string])  
@@ -111,7 +116,7 @@ def check_tameng_or_engtam(word):
     for i in range(w_len):
         pref = word[:i]
         suf = word[i:]
-        if((check_if_tamil_word(pref) and suf.isalpha()) or (pref.isalpha() and check_if_tamil_word(suf))):
+        if((check_if_tamil_word(pref) and suf.isalnum()) or (pref.isalnum() and check_if_tamil_word(suf))):
             return True, i
 
     return False, -1
@@ -134,7 +139,7 @@ def remove_punctuation_combined(folder_path):
         file_name = os.path.join(folder_path, f"{partition}/text")
         with open(file_name, "r") as f:
             lines = [line.rstrip().split() for line in f]
-            processed_lines = [f"{line[0]}\t{punctuation_remove(' '.join(line[1:]))}" for line in lines]
+            processed_lines = [f"{line[0]}\t{punctuation_and_others_remove(' '.join(line[1:]))}" for line in lines]
             # processed_lines = [f"{punctuation_remove(line[1])}" for line in lines]
             with open(os.path.join(folder_path,f"{partition}/text"), 'w') as file:
                 file.write('\n'.join(processed_lines))
@@ -144,7 +149,7 @@ def remove_punctuation_mozillacv(folder_path):
         file_name = os.path.join(folder_path, f"{partition}_transcription.txt")
         with open(file_name, "r") as f:
             lines = [line.rstrip().split('\t') for line in f]
-            processed_lines = [f"{line[0]}\t{punctuation_remove(line[1])}" for line in lines]
+            processed_lines = [f"{line[0]}\t{punctuation_and_others_remove(line[1])}" for line in lines]
             # processed_lines = [f"{punctuation_remove(line[1])}" for line in lines]
             with open(os.path.join(folder_path,f"{partition}_text_processed.txt"), 'w') as file:
                 file.write('\n'.join(processed_lines))
