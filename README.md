@@ -450,3 +450,6 @@ sudo apt install flex
     - wav.scp
   - wav.scp (club all the datasets)
   - utt2spk (skip speaker)
+
+### Preprocessing
+- Decided to leave some of the entries containing english words and mix of english-tamil in the transcripts/audio assuming that <unk> will take care of it

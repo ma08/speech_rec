@@ -1,0 +1,15 @@
+2022-05-06 07:58:34.153795 Running on mozilla train
+2022-05-06 07:58:34.153880 Processing tamil_db_files/dataset_files/commonvoice_tamil/train_transcription.txt for mozilla-train
+2022-05-06 07:58:34.778081 pure_eng_lines_count: 1704
+2022-05-06 07:58:34.778102 comb_word_lines_count: 259
+2022-05-06 07:58:34.778105 whitespace_fixed_lines_count: 0
+2022-05-06 07:58:34.780443 Running on mozilla dev
+2022-05-06 07:58:34.780542 Processing tamil_db_files/dataset_files/commonvoice_tamil/dev_transcription.txt for mozilla-dev
+2022-05-06 07:58:34.949325 pure_eng_lines_count: 31
+2022-05-06 07:58:34.949398 comb_word_lines_count: 3
+2022-05-06 07:58:34.949403 whitespace_fixed_lines_count: 0
+2022-05-06 07:58:34.951215 Running on mozilla test
+2022-05-06 07:58:34.951372 Processing tamil_db_files/dataset_files/commonvoice_tamil/test_transcription.txt for mozilla-test
+2022-05-06 07:58:35.103883 pure_eng_lines_count: 108
+2022-05-06 07:58:35.103902 comb_word_lines_count: 13
+2022-05-06 07:58:35.103904 whitespace_fixed_lines_count: 0

@@ -4,7 +4,9 @@ import random
 
 from pathlib import Path
 
-from toml import TomlArraySeparatorEncoder
+import string     
+import re
+
 mozillacv_tamil_path = "./dataset_files/commonvoice_tamil"
 def create_formatted_files_mozillacv(folder_path):
     clientid_set = set()
@@ -46,15 +48,86 @@ def create_formatted_files_mozillacv(folder_path):
 
             with open(os.path.join(folder_path,f"{partition}_transcription.txt"), 'w') as file:
                 file.write('\n'.join(output_lines))
-import string     
+
+def contains_multiple_spaces(s):
+    return bool(re.search(r' {2,}', s))
+
+"""
+https://stackoverflow.com/a/2077906/3465519
+"""
+def fix_multiple_whitespace(input_text, isunicode_whitespace=True):
+    text = input_text
+    if(isunicode_whitespace):
+        _RE_COMBINE_WHITESPACE = re.compile(r"\s+")
+        text = _RE_COMBINE_WHITESPACE.sub(" ", text).strip()
+        return text
+    else:
+        _RE_COMBINE_WHITESPACE = re.compile(r"(?a:\s+)")
+        _RE_STRIP_WHITESPACE = re.compile(r"(?a:^\s+|\s+$)")
+        text = _RE_COMBINE_WHITESPACE.sub(" ", text)
+        text = _RE_STRIP_WHITESPACE.sub("", text)
+        return text
+
+
 # Printing Inbuilt punctuation function
 # print(string.punctuation)            
 
 # Function for removing punctuation
 def punctuation_remove(text_data): 
     # Appending non punctuated words
-    punctuation ="".join([t for t in text_data if t not in string.punctuation])  
+    '“”‘’‚◯·—–'
+    char_list = [
+        '“', #U+201C : LEFT DOUBLE QUOTATION MARK {double turned comma quotation mark}
+        "”", #U+201D : RIGHT DOUBLE QUOTATION MARK {double comma quotation mark}
+        '‘', #U+2018 : LEFT SINGLE QUOTATION MARK {single turned comma quotation mark}
+        '’', #U+2019 : RIGHT SINGLE QUOTATION MARK {single comma quotation mark}
+        '‚', #U+201A : SINGLE LOW-9 QUOTATION MARK {low single comma quotation mark}
+        '◯', #U+25EF : LARGE CIRCLE
+        '·', #U+00B7 : MIDDLE DOT {midpoint (in typography); Georgian comma; Greek middle dot (ano teleia)}
+        '—', #U+2014 : EM DASH {em dash}
+        '–', #U+2013 : EN DASH,
+        '•', #U+2022 : BULLET {black small circle},
+        '…', #U+2026 : HORIZONTAL ELLIPSIS {three dot leader},
+        '″', #U+2033 : DOUBLE PRIME {seconds, inches}
+    ]
+    punc_char_string = string.punctuation+"".join(char_list)
+    punctuation ="".join([t for t in text_data if t not in punc_char_string])  
     return punctuation
+
+r = re.compile(r'^[\u0B80-\u0BFF]+$')
+def check_if_tamil_word(word):
+    if(r.search(word)):
+        return True
+    else:
+        return False
+
+'''
+உருவாக்கப்பட்டதுஇதுExpressinho
+Cookஅடுத்து
+even empty tam/eng subparts are considered to pass
+'''
+def check_tameng_or_engtam(word):
+    w_len = len(word)
+    for i in range(w_len):
+        pref = word[:i]
+        suf = word[i:]
+        if((check_if_tamil_word(pref) and suf.isalpha()) or (pref.isalpha() and check_if_tamil_word(suf))):
+            return True, i
+
+    return False, -1
+
+
+"""
+உருவாக்கப்பட்டதுஇதுExpressinho
+Cookஅடுத்து
+"""
+def split_engtam_or_tameng_word(word):
+    is_tameng, split_index = check_tameng_or_engtam(word)
+    if(is_tameng):
+        return True, f"{word[:split_index]} {word[split_index:]}"
+    else:
+        return False,word
+
 
 def remove_punctuation_combined(folder_path):
     for partition in "train", "dev", "test":

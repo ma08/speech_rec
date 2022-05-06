@@ -4,14 +4,9 @@ import random
 
 from pathlib import Path
 
-
 import re
-def check_if_tamil_word(word):
-    r = re.compile(r'^[\u0B80-\u0BFF]+$')
-    if(r.search(word)):
-        return True
-    else:
-        return False
+import helper
+
 
 from tamil import utf8
 
@@ -29,7 +24,7 @@ def get_lexicon(folder_path):
             for line in lines:
                 for word in line:
                     total_count+=1
-                    if(not check_if_tamil_word(word)):
+                    if(not helper.check_if_tamil_word(word)):
                         # print(f"{word} is not a tamil word")
                         non_tamil_count +=1
                     else:
