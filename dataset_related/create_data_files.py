@@ -1,4 +1,5 @@
 import sys
+
 sys.path.append('../')
 import print_timestamp_module
 print = print_timestamp_module.timestamped_print
@@ -8,6 +9,7 @@ import sox
 import sys
 from pathlib import Path
 import shutil
+import helper
 
 sample_folder = "/home/sourya4/pro/columbia/spring22/fund_sp_rec/datasets/microsoftspeechcorpusindianlanguages/te-in-Train/Audios/"
 home_path =  os.path.expanduser("~") 
@@ -39,6 +41,86 @@ def get_wavscp_lines(fstems, dataset_name, audio_rel_folder):
     return wavscp_lines
 
 
+def process_tamil_transcript(file_path, dataset_name):
+    print(f"Processing {file_path} for {dataset_name}")
+    tamil_lines = []
+    with open(file_path, "r") as t_file:
+        pure_eng_lines_count = 0
+        comb_word_lines_count = 0
+        unclean_lines_count = 0
+        whitespace_fixed_lines_count = 0
+        for input_line in t_file:
+            culprit_words = []
+            line = input_line.rstrip()
+            is_clean = True
+            is_comb_line = False
+            audio_id_part = line.split()[0]
+            transcript_text = " ".join(line.split()[1:])
+            text_processed = helper.punctuation_and_others_remove(transcript_text)
+            new_words = []
+            has_pure_eng = False
+            for word in text_processed.split():
+                if(not helper.check_if_tamil_word(word)):
+                    culprit_words.append(word)
+                    # if(word.isalpha()):
+                    if(word.isalnum()):
+                        has_pure_eng = True
+                        pure_eng_lines_count+=1
+                        new_words.append(word)
+                        is_clean = True
+                        # is_clean = True
+                        # print(f"!{transcript_text}! culprit:!{word}!")
+                        # print(f"{word} is not tamil")
+                        continue
+                    # print("------------")
+                    # print(f"!{line}! culprit:!{word}!")
+                    # print(f"orig:!{transcript_text}! afterpunc:!{text_processed}!")
+                    is_comb, processed_word = helper.split_engtam_or_tameng_word(word)
+                    # print(f"is_comb: {is_comb} orig_wrod: !{word}! comb:!{processed_word}!")
+                    if(is_comb):
+                        comb_word_lines_count+=1
+                        new_words.append(processed_word)
+                        is_comb_line = True
+                    else:
+                        # unclean_lines_count+=1
+                        is_clean = False
+                        new_words.append(word)
+                        continue
+                else:
+                    new_words.append(word)
+            final_line = line
+            if(is_clean):
+                if(has_pure_eng or is_comb_line):
+                    processed_text = ' '.join(new_words)
+
+                    whitespace_fixed_text = helper.fix_multiple_whitespace(processed_text,isunicode_whitespace=False)
+
+                    if(whitespace_fixed_text != processed_text):
+                        whitespace_fixed_lines_count+=1
+
+                    # print("!!!!!!!!!!!!!!!!!!!!")
+                    # print(f"has_pure_eng {has_pure_eng} is_comb_line {is_comb_line}")
+                    # print(f"{transcript_text}")
+                    # print(f"{processed_line}")
+                    # print("!!!!!!!!!!!!!!!!!!!!")
+                    final_line = f"{audio_id_part}\t{processed_text}"
+                # tamil_lines.append(final_line)
+            else:
+                unclean_lines_count+=1
+                #sliding unclean so that <unk> can take care of it later
+                print(f"not clean {transcript_text}")
+                print(f"culprit words {culprit_words}")
+                # print("------------")
+                pass
+            # print(f"{final_line}")
+            tamil_lines.append(final_line)
+    print(f"pure_eng_lines_count: {pure_eng_lines_count}")
+    print(f"comb_word_lines_count: {comb_word_lines_count}")
+    print(f"whitespace_fixed_lines_count: {whitespace_fixed_lines_count}")
+    print(f"unclean_lines_count: {unclean_lines_count}")
+    return tamil_lines
+
+
 
 
 
@@ -59,6 +141,8 @@ def create_files(folder_path, dataset_name):
         target_folder = f"{folder_path}/transcription/{partition}"
         Path(target_folder).mkdir(parents=True, exist_ok=True)
         transcript_file = f"{folder_path}/{partition}_transcription.txt"
+        processed_text_lines = process_tamil_transcript(transcript_file, f"{dataset_name}-{partition}")
+
         segment_file = f"{folder_path}/transcription/{partition}/segments"
         utt2spk_file = f"{folder_path}/transcription/{partition}/utt2spk"
         utt2dur_file = f"{folder_path}/transcription/{partition}/utt2dur"
@@ -66,9 +150,15 @@ def create_files(folder_path, dataset_name):
         audio_folder = f"{folder_path}/Audio"
         audio_rel_folder = f"~/{os.path.relpath(audio_folder, home_path)}"
 
+        #Creating text
+        target_text_file = f"{target_folder}/text"
+        print(f"Writing text to {target_text_file}")
+        with open(target_text_file, "w") as t_file:
+            t_file.write('\n'.join(processed_text_lines))
+
+        continue
+            
         with open(transcript_file, "r") as t_file:
-            #Creating 'text' file by copying
-            shutil.copyfile(transcript_file, f"{target_folder}/text")
             file_stems = [line.rstrip().split('\t')[0] for line in t_file]
             utt2spk_lines = get_utt2spk_lines(file_stems, dataset_name)
             fstem_dur_secs = get_fstem_dur_secs(file_stems, dataset_name, audio_folder)
@@ -91,14 +181,19 @@ def create_files(folder_path, dataset_name):
 if(len(sys.argv)>1):
     create_files(sys.argv[1])
 else:
+    # mozilla_path = "tamil_db_files/dataset_files/commonvoice_tamil"
+    # mozilla_dataset_name = "mozilla"
+    # create_files(mozilla_path, mozilla_dataset_name)
     # openslr_path = "~/kaldi/egs/tamil_telugu_proj/s5_r3/db/openslr_tamil"
-    # openslr_dataset_name = "openslr"
+    openslr_path = "tamil_db_files/dataset_files/openslr_tamil"
+    openslr_dataset_name = "openslr"
+    create_files(openslr_path, openslr_dataset_name)
     #create_files(openslr_path, openslr_dataset_name)
     # mozilla_path = "~/kaldi/egs/tamil_telugu_proj/s5_r3/db/mozillacv_tamil"
     # mozilla_dataset_name = "mozilla"
     # create_files(mozilla_path, mozilla_dataset_name)
-    microsoft_path = "~/kaldi/egs/tamil_telugu_proj/s5_r3/db/microsoft_tamil"
-    microsoft_dataset_name = "microsoft"
-    create_files(microsoft_path, microsoft_dataset_name)
-    print("finished")
+    # microsoft_path = "~/kaldi/egs/tamil_telugu_proj/s5_r3/db/microsoft_tamil"
+    # microsoft_dataset_name = "microsoft"
+    # create_files(microsoft_path, microsoft_dataset_name)
+    # print("finished")
 
