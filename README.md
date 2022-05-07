@@ -453,3 +453,8 @@ sudo apt install flex
 
 ### Preprocessing
 - Decided to leave some of the entries containing english words and mix of english-tamil in the transcripts/audio assuming that <unk> will take care of it
+
+documenting in findings.md
+
+### added kaldi_tamtel_db submodule
+git submodule update --init --recursive

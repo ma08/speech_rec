@@ -48,7 +48,7 @@ def process_tamil_transcript(file_path, dataset_name):
         pure_eng_lines_count = 0
         comb_word_lines_count = 0
         unclean_lines_count = 0
-        whitespace_fixed_lines_count = 0
+        # whitespace_fixed_lines_count = 0
         for input_line in t_file:
             culprit_words = []
             line = input_line.rstrip()
@@ -88,15 +88,18 @@ def process_tamil_transcript(file_path, dataset_name):
                         continue
                 else:
                     new_words.append(word)
-            final_line = line
+            # final_line = line
+            processed_text = ' '.join(new_words)
+            final_line = f"{audio_id_part}\t{processed_text}"
+            # whitespace_fixed_text = helper.fix_multiple_whitespace(processed_text,isunicode_whitespace=True)
+
+            # if(whitespace_fixed_text != processed_text):
+            #     whitespace_fixed_lines_count+=1
+
+
             if(is_clean):
                 if(has_pure_eng or is_comb_line):
-                    processed_text = ' '.join(new_words)
 
-                    whitespace_fixed_text = helper.fix_multiple_whitespace(processed_text,isunicode_whitespace=False)
-
-                    if(whitespace_fixed_text != processed_text):
-                        whitespace_fixed_lines_count+=1
 
                     # print("!!!!!!!!!!!!!!!!!!!!")
                     # print(f"has_pure_eng {has_pure_eng} is_comb_line {is_comb_line}")
@@ -116,7 +119,7 @@ def process_tamil_transcript(file_path, dataset_name):
             tamil_lines.append(final_line)
     print(f"pure_eng_lines_count: {pure_eng_lines_count}")
     print(f"comb_word_lines_count: {comb_word_lines_count}")
-    print(f"whitespace_fixed_lines_count: {whitespace_fixed_lines_count}")
+    # print(f"whitespace_fixed_lines_count: {whitespace_fixed_lines_count}")
     print(f"unclean_lines_count: {unclean_lines_count}")
     return tamil_lines
 
@@ -157,6 +160,9 @@ def create_files(folder_path, dataset_name):
         # continue
         with open(target_text_file, "w") as t_file:
             t_file.write('\n'.join(processed_text_lines))
+
+        if(dataset_name == "iitm_asr"):
+            continue
 
             
         with open(transcript_file, "r") as t_file:
