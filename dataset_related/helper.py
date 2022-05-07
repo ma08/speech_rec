@@ -94,6 +94,7 @@ def punctuation_and_others_remove(text_data):
         '…', #U+2026 : HORIZONTAL ELLIPSIS {three dot leader},
         '″', #U+2033 : DOUBLE PRIME {seconds, inches}
         '\u200c', #U+200c : ZERO WIDTH NON-JOINER {zero-width non-joiner}
+        '\ufeff', #U+FEFF : ZERO WIDTH NO-BREAK SPACE [ZWNBSP] (alias BYTE ORDER MARK [BOM]) {BOM, ZWNBSP}
     ]
     punc_char_string = string.punctuation+"".join(char_list)
     punctuation ="".join([t for t in text_data if t not in punc_char_string])  

@@ -100,3 +100,43 @@ therefore removing
 2022-05-06 08:56:49.561979 culprit words ['கூறுவார்கள்taf0234500348037167']
 ```
 Taking care of alpha numeric instead of just alpha now
+
+### iitm asr
+```
+2022-05-06 09:23:52.599056 Running on iitm_asr train
+2022-05-06 09:23:52.599129 Processing tamil_db_files/dataset_files/iitm_asr_tamil/train_transcription.txt for iitm_asr-train
+2022-05-06 09:23:53.410978 not clean மார்க்கெட்டிங் அதிகாரி﻿ சந்தைப்படுத்துதலுக்கு இன்று அத்தனை துறைகளும்
+2022-05-06 09:23:53.411024 culprit words ['அதிகாரி\ufeff']
+2022-05-06 09:23:53.416826 not clean தோல்வி அடைந்ததாகக் கூறப்படுவது குறித்து﻿ இதுபோல் ஒரு முயற்சி நடைபெறவில்லை தான்
+2022-05-06 09:23:53.416851 culprit words ['குறித்து\ufeff']
+2022-05-06 09:23:53.442846 pure_eng_lines_count: 24
+2022-05-06 09:23:53.442868 comb_word_lines_count: 0
+2022-05-06 09:23:53.442871 whitespace_fixed_lines_count: 0
+2022-05-06 09:23:53.442873 unclean_lines_count: 2
+```
+
+added it to the pronounciation function
+
+```
+2022-05-06 09:58:35.289490 Running on iitm_asr train
+2022-05-06 09:58:35.289577 Processing tamil_db_files/dataset_files/iitm_asr_tamil/train_transcription.txt for iitm_asr-train
+2022-05-06 09:58:36.135770 pure_eng_lines_count: 24
+2022-05-06 09:58:36.135790 comb_word_lines_count: 0
+2022-05-06 09:58:36.135792 whitespace_fixed_lines_count: 0
+2022-05-06 09:58:36.135795 unclean_lines_count: 0
+2022-05-06 09:58:36.135848 Writing text to tamil_db_files/dataset_files/iitm_asr_tamil/transcription/train/text
+2022-05-06 09:58:36.135851 Running on iitm_asr dev
+2022-05-06 09:58:36.135908 Processing tamil_db_files/dataset_files/iitm_asr_tamil/dev_transcription.txt for iitm_asr-dev
+2022-05-06 09:58:36.172441 pure_eng_lines_count: 0
+2022-05-06 09:58:36.172459 comb_word_lines_count: 0
+2022-05-06 09:58:36.172462 whitespace_fixed_lines_count: 0
+2022-05-06 09:58:36.172464 unclean_lines_count: 0
+2022-05-06 09:58:36.176327 Writing text to tamil_db_files/dataset_files/iitm_asr_tamil/transcription/dev/text
+2022-05-06 09:58:36.176346 Running on iitm_asr test
+2022-05-06 09:58:36.176411 Processing tamil_db_files/dataset_files/iitm_asr_tamil/test_transcription.txt for iitm_asr-test
+2022-05-06 09:58:36.212548 pure_eng_lines_count: 1
+2022-05-06 09:58:36.212568 comb_word_lines_count: 1
+2022-05-06 09:58:36.212570 whitespace_fixed_lines_count: 0
+2022-05-06 09:58:36.212572 unclean_lines_count: 0
+2022-05-06 09:58:36.212834 Writing text to tamil_db_files/dataset_files/iitm_asr_tamil/transcription/test/text
+```

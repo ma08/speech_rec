@@ -61,6 +61,7 @@ else:
     # get_lexicon(kaldi_db)
 
 	print(f"print(split_word_to_letters('நட‌க்க')): {split_word_to_letters('நட‌க்க')}")
+	print(f"print(split_word_to_letters('அதிகாரி﻿')): {split_word_to_letters('அதிகாரி﻿')}")
 	# print(split_word_to_letters("நட‌க்க"))
     #remove_punctuation_combined(kaldi_db)
 

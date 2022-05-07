@@ -153,10 +153,11 @@ def create_files(folder_path, dataset_name):
         #Creating text
         target_text_file = f"{target_folder}/text"
         print(f"Writing text to {target_text_file}")
+
+        # continue
         with open(target_text_file, "w") as t_file:
             t_file.write('\n'.join(processed_text_lines))
 
-        continue
             
         with open(transcript_file, "r") as t_file:
             file_stems = [line.rstrip().split('\t')[0] for line in t_file]
@@ -185,15 +186,19 @@ else:
     # mozilla_dataset_name = "mozilla"
     # create_files(mozilla_path, mozilla_dataset_name)
     # openslr_path = "~/kaldi/egs/tamil_telugu_proj/s5_r3/db/openslr_tamil"
-    openslr_path = "tamil_db_files/dataset_files/openslr_tamil"
-    openslr_dataset_name = "openslr"
-    create_files(openslr_path, openslr_dataset_name)
+    # openslr_path = "tamil_db_files/dataset_files/openslr_tamil"
+    # openslr_dataset_name = "openslr"
+    # create_files(openslr_path, openslr_dataset_name)
     #create_files(openslr_path, openslr_dataset_name)
     # mozilla_path = "~/kaldi/egs/tamil_telugu_proj/s5_r3/db/mozillacv_tamil"
     # mozilla_dataset_name = "mozilla"
     # create_files(mozilla_path, mozilla_dataset_name)
     # microsoft_path = "~/kaldi/egs/tamil_telugu_proj/s5_r3/db/microsoft_tamil"
+    # microsoft_path = "tamil_db_files/dataset_files/microsoft_tamil"
     # microsoft_dataset_name = "microsoft"
     # create_files(microsoft_path, microsoft_dataset_name)
+    ittm_asr_path = "tamil_db_files/dataset_files/iitm_asr_tamil"
+    iitm_dataset_name = "iitm_asr"
+    create_files(ittm_asr_path, iitm_dataset_name)
     # print("finished")
 
