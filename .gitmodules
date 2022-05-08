@@ -1,3 +1,6 @@
 [submodule "kaldi_tamtel_db"]
 	path = kaldi_tamtel_db
 	url = https://github.com/ma08/kaldi_tamtel_db.git
+[submodule "kaldi_tamtel_recipe"]
+	path = kaldi_tamtel_recipe
+	url = https://github.com/ma08/kaldi_tamtel.git
