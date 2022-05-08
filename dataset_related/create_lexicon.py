@@ -39,7 +39,7 @@ def get_lexicon(folder_path):
                     else:
                         tamil_word_set.add(word)
     
-    with open(f"{folder_path}/lexicon", 'w') as file:
+    with open(f"{folder_path}/lexicon.txt", 'w') as file:
         for tamil_word in tamil_word_set:
             letters = split_word_to_letters(tamil_word)
             file.write(f"{tamil_word}\t{' '.join(letters)}\n")
@@ -57,11 +57,11 @@ else:
     # fix_asriitm_wavscp_path("~/kaldi/egs/tamil_telugu_proj/s5_r3/db/asriitm_tamil")
     # fix_asriitm_wavscp_path("dataset_files/iitm_asr_tamil")
 
-    # kaldi_db = "kaldi_db/combined_transcription/"
-    # get_lexicon(kaldi_db)
+    kaldi_db = "~/kaldi/egs/tamil_telugu_proj/s5_r3/db/combined_transcription"
+    get_lexicon(kaldi_db)
 
-	print(f"print(split_word_to_letters('நட‌க்க')): {split_word_to_letters('நட‌க்க')}")
-	print(f"print(split_word_to_letters('அதிகாரி﻿')): {split_word_to_letters('அதிகாரி﻿')}")
+	# print(f"print(split_word_to_letters('நட‌க்க')): {split_word_to_letters('நட‌க்க')}")
+	# print(f"print(split_word_to_letters('அதிகாரி﻿')): {split_word_to_letters('அதிகாரி﻿')}")
 	# print(split_word_to_letters("நட‌க்க"))
     #remove_punctuation_combined(kaldi_db)
 
