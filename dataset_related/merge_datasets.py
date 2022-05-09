@@ -29,7 +29,7 @@ def merge_datasets(folder_path):
                         shutil.copyfileobj(fd, wfd)
                         fd.seek(-len(os.linesep), 2)
                         if fd.read() != os.linesep and i != len(file_names)-1:
-                            wfd.write(os.linesep)
+                            wfd.write(os.linesep.encode())
 
 
 if(len(sys.argv)>1):
