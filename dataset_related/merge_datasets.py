@@ -18,7 +18,8 @@ def merge_datasets(folder_path):
     for partition in "train", "dev", "test":
         subtarget_folder = f"{target_folder}/{partition}"
         Path(subtarget_folder).mkdir(parents=True, exist_ok=True)
-        for file_name in file_names:
+        for i in range(len(file_names)):
+            file_name = file_names[i]
             target_file = f"{subtarget_folder}/{file_name}"
             with open(target_file, 'wb') as wfd:
                 for dataset in "asriitm_tamil", "mozillacv_tamil", "microsoft_tamil", "openslr_tamil":
@@ -26,6 +27,10 @@ def merge_datasets(folder_path):
                     current_input_file = f"{folder_path}/{dataset}/transcription/{partition}/{file_name}"
                     with open(current_input_file,'rb') as fd:
                         shutil.copyfileobj(fd, wfd)
+                        fd.seek(-len(os.linesep), 2)
+                        if fd.read() != os.linesep and i != len(file_names)-1:
+                            wfd.write(os.linesep)
+
 
 if(len(sys.argv)>1):
     merge_datasets(sys.argv[1])
