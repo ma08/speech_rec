@@ -1,0 +1,34 @@
+processing preprocessing/stage5_out_rand25klines.txt
+file preprocessing/stage5_out_rand25klines.txt space error 0 tamil word error 0
+processing preprocessing/iitmasr_text.txt
+culprit word 11
+culprit word 20
+culprit word வந்தேன்”
+culprit word 3000
+culprit word 3
+culprit word 300
+culprit word 40
+culprit word 10
+culprit word 100
+culprit word 110
+culprit word 2010
+culprit word 2006
+culprit word 35
+culprit word 100
+culprit word செய்கிறோம்”என்கிறார்
+culprit word 23
+culprit word அதிகாரி﻿
+culprit word 1999
+culprit word குறித்து﻿
+culprit word 30
+culprit word 2
+culprit word 35
+culprit word 1999
+culprit word 2011
+culprit word 10
+culprit word 100
+culprit word 4
+culprit word 2
+file preprocessing/iitmasr_text.txt space error 0 tamil word error 28
+processing preprocessing/iitmasr_text_processed.txt
+file preprocessing/iitmasr_text_processed.txt space error 0 tamil word error 0

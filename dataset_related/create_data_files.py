@@ -9,7 +9,7 @@ import sox
 import sys
 from pathlib import Path
 import shutil
-import helper
+import utility_module
 
 sample_folder = "/home/sourya4/pro/columbia/spring22/fund_sp_rec/datasets/microsoftspeechcorpusindianlanguages/te-in-Train/Audios/"
 home_path =  os.path.expanduser("~") 
@@ -56,11 +56,11 @@ def process_tamil_transcript(file_path, dataset_name):
             is_comb_line = False
             audio_id_part = line.split()[0]
             transcript_text = " ".join(line.split()[1:])
-            text_processed = helper.punctuation_and_others_remove(transcript_text)
+            text_processed = utility_module.punctuation_and_others_remove(transcript_text)
             new_words = []
             has_pure_eng = False
             for word in text_processed.split():
-                if(not helper.check_if_tamil_word(word)):
+                if(not utility_module.check_if_tamil_word(word)):
                     culprit_words.append(word)
                     # if(word.isalpha()):
                     if(word.isalnum()):
@@ -75,7 +75,7 @@ def process_tamil_transcript(file_path, dataset_name):
                     # print("------------")
                     # print(f"!{line}! culprit:!{word}!")
                     # print(f"orig:!{transcript_text}! afterpunc:!{text_processed}!")
-                    is_comb, processed_word = helper.split_engtam_or_tameng_word(word)
+                    is_comb, processed_word = utility_module.split_engtam_or_tameng_word(word)
                     # print(f"is_comb: {is_comb} orig_wrod: !{word}! comb:!{processed_word}!")
                     if(is_comb):
                         comb_word_lines_count+=1

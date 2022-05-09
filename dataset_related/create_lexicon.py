@@ -5,9 +5,9 @@ import random
 from pathlib import Path
 
 import re
-import helper
-
 sys.path.append('../')
+import utility_module
+
 import print_timestamp_module
 print = print_timestamp_module.timestamped_print
 
@@ -33,7 +33,7 @@ def get_lexicon(folder_path):
             for line in lines:
                 for word in line:
                     total_count+=1
-                    if(not helper.check_if_tamil_word(word)):
+                    if(not utility_module.check_if_tamil_word(word)):
                         # print(f"{word} is not a tamil word")
                         non_tamil_count +=1
                     else:

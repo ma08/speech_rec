@@ -27,6 +27,8 @@ def merge_datasets(folder_path):
                     current_input_file = f"{folder_path}/{dataset}/transcription/{partition}/{file_name}"
                     with open(current_input_file,'rb') as fd:
                         shutil.copyfileobj(fd, wfd)
+                        # following might be buggy. verify please.
+                        # aim is to append in new line
                         fd.seek(-len(os.linesep), 2)
                         if fd.read() != os.linesep and i != len(file_names)-1:
                             wfd.write(os.linesep.encode())
