@@ -1,0 +1,21 @@
+2022-05-06 09:12:48.650708 Running on microsoft train
+2022-05-06 09:12:48.650865 Processing tamil_db_files/dataset_files/microsoft_tamil/train_transcription.txt for microsoft-train
+2022-05-06 09:12:49.020949 pure_eng_lines_count: 0
+2022-05-06 09:12:49.020976 comb_word_lines_count: 0
+2022-05-06 09:12:49.020980 whitespace_fixed_lines_count: 0
+2022-05-06 09:12:49.020983 unclean_lines_count: 0
+2022-05-06 09:12:49.021042 Writing text to tamil_db_files/dataset_files/microsoft_tamil/transcription/train/text
+2022-05-06 09:12:49.036299 Running on microsoft dev
+2022-05-06 09:12:49.036489 Processing tamil_db_files/dataset_files/microsoft_tamil/dev_transcription.txt for microsoft-dev
+2022-05-06 09:12:49.040963 pure_eng_lines_count: 0
+2022-05-06 09:12:49.040985 comb_word_lines_count: 0
+2022-05-06 09:12:49.040987 whitespace_fixed_lines_count: 0
+2022-05-06 09:12:49.040990 unclean_lines_count: 0
+2022-05-06 09:12:49.046349 Writing text to tamil_db_files/dataset_files/microsoft_tamil/transcription/dev/text
+2022-05-06 09:12:49.047020 Running on microsoft test
+2022-05-06 09:12:49.047169 Processing tamil_db_files/dataset_files/microsoft_tamil/test_transcription.txt for microsoft-test
+2022-05-06 09:12:49.096720 pure_eng_lines_count: 0
+2022-05-06 09:12:49.096758 comb_word_lines_count: 0
+2022-05-06 09:12:49.096761 whitespace_fixed_lines_count: 0
+2022-05-06 09:12:49.096764 unclean_lines_count: 0
+2022-05-06 09:12:49.096873 Writing text to tamil_db_files/dataset_files/microsoft_tamil/transcription/test/text

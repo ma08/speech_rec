@@ -1,15 +1,26 @@
-2022-05-06 07:58:34.153795 Running on mozilla train
-2022-05-06 07:58:34.153880 Processing tamil_db_files/dataset_files/commonvoice_tamil/train_transcription.txt for mozilla-train
-2022-05-06 07:58:34.778081 pure_eng_lines_count: 1704
-2022-05-06 07:58:34.778102 comb_word_lines_count: 259
-2022-05-06 07:58:34.778105 whitespace_fixed_lines_count: 0
-2022-05-06 07:58:34.780443 Running on mozilla dev
-2022-05-06 07:58:34.780542 Processing tamil_db_files/dataset_files/commonvoice_tamil/dev_transcription.txt for mozilla-dev
-2022-05-06 07:58:34.949325 pure_eng_lines_count: 31
-2022-05-06 07:58:34.949398 comb_word_lines_count: 3
-2022-05-06 07:58:34.949403 whitespace_fixed_lines_count: 0
-2022-05-06 07:58:34.951215 Running on mozilla test
-2022-05-06 07:58:34.951372 Processing tamil_db_files/dataset_files/commonvoice_tamil/test_transcription.txt for mozilla-test
-2022-05-06 07:58:35.103883 pure_eng_lines_count: 108
-2022-05-06 07:58:35.103902 comb_word_lines_count: 13
-2022-05-06 07:58:35.103904 whitespace_fixed_lines_count: 0
+2022-05-06 08:34:19.785776 Running on mozilla train
+2022-05-06 08:34:19.785875 Processing tamil_db_files/dataset_files/commonvoice_tamil/train_transcription.txt for mozilla-train
+2022-05-06 08:34:19.907522 not clean மற்றொரு முக்கிய விsஹயம் சமிக்ஞை உமிழ்வு கட்டுப்பாடு
+2022-05-06 08:34:19.914632 not clean இது தெரியாமல் ரியூஷி தனது கனவை நனவாக்க நருடகிsouக்கு நகர்கிறார்
+2022-05-06 08:34:20.174134 not clean நிறுத்து நிறுத்து என உத்தரவு போடுகிறாள் சிந்தாഥணி
+2022-05-06 08:34:20.245159 pure_eng_lines_count: 1704
+2022-05-06 08:34:20.245197 comb_word_lines_count: 259
+2022-05-06 08:34:20.245200 whitespace_fixed_lines_count: 0
+2022-05-06 08:34:20.245203 unclean_lines_count: 3
+2022-05-06 08:34:20.245304 Writing text to tamil_db_files/dataset_files/commonvoice_tamil/transcription/train/text
+2022-05-06 08:34:20.270663 Running on mozilla dev
+2022-05-06 08:34:20.270767 Processing tamil_db_files/dataset_files/commonvoice_tamil/dev_transcription.txt for mozilla-dev
+2022-05-06 08:34:20.295327 not clean காஃபி உலகில் விளையும் மொத்தக் காஃபியில் ¾ பங்கு பிரேசில் நாட்டில் விளைகிறது
+2022-05-06 08:34:20.405266 pure_eng_lines_count: 31
+2022-05-06 08:34:20.405327 comb_word_lines_count: 3
+2022-05-06 08:34:20.405329 whitespace_fixed_lines_count: 0
+2022-05-06 08:34:20.405332 unclean_lines_count: 1
+2022-05-06 08:34:20.410141 Writing text to tamil_db_files/dataset_files/commonvoice_tamil/transcription/dev/text
+2022-05-06 08:34:20.419496 Running on mozilla test
+2022-05-06 08:34:20.419771 Processing tamil_db_files/dataset_files/commonvoice_tamil/test_transcription.txt for mozilla-test
+2022-05-06 08:34:20.546698 not clean இதன் குறுக்களவு ½ கல் இருக்கும்
+2022-05-06 08:34:20.566454 pure_eng_lines_count: 108
+2022-05-06 08:34:20.566513 comb_word_lines_count: 13
+2022-05-06 08:34:20.566517 whitespace_fixed_lines_count: 0
+2022-05-06 08:34:20.566523 unclean_lines_count: 1
+2022-05-06 08:34:20.568466 Writing text to tamil_db_files/dataset_files/commonvoice_tamil/transcription/test/text
