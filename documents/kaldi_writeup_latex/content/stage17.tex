@@ -1,0 +1,16 @@
+\subsection{ Stage 17 - Run Time Delayed Neural Network}
+In this stage, the \path{tuning/run_tdnn_1d.sh} script is run to train a TDNN model to learn acoustic features on the latest data.
+
+First, i-Vector extraction is done by running the \path{run_ivector_common.sh} script. An iVector is a vector of dimension several hundred (one or two hundred, in this particular context) which represents the speaker properties~\cite{ivector}. As part of the extraction, data augmentation is done, and speed-perturbed data is prepared from that~\cite{understandingkaldi}. Next, MFCC and CMVN of the speed-perturbed data is computed. Finally training alignments of the speed-perturbed data are obtained. Volume perturbation is then done on speed-perturbed train dataset. High-resoultion MFCCs and CMVNs are extracted from the volume and speed perturbed data.
+
+The \path{steps/nnet3/chain/gen_topo.py} script is run to populate the \path{data/lang_chain/} directory with a chain topology~\cite{chaintop}. This topology is used for Kaldi nnet3 DNN-HMM models.
+
+Next alignments and lattices are obtained from low resoultion MFCCs by running \path{steps/align_fmllr_lats.sh}.
+
+Next a new decision tree is built using lowe-resolution MFCCs, the new topology and alignments by running \path{steps/nnet3/chain/build_tree.sh}
+
+A config file for the DNN sturcture is built using \path{steps/nnet3/xconfig_to_configs.py }
+
+The configured DNN is trained using the high-resolution MFCCs, new decisions tree and i-vectors extracted in the previous steps by running \path{steps/nnet3/chain/train.py}.
+
+Finally graph is recomputed (using \path{utils/mkgraph.sh}), decoding and rescoring are done similar to the previous stages.

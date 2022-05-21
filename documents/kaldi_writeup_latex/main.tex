@@ -1,0 +1,135 @@
+\documentclass[11pt,twoside]{article}
+
+\usepackage{paperlighter}
+
+% Recommended, but optional, packages for figures and better typesetting:
+\usepackage{microtype}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{booktabs} % for professional tables
+
+% Attempt to make hyperref and algorithmic work together better:
+\newcommand{\theHalgorithm}{\arabic{algorithm}}
+
+
+% For theorems and such
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{amsthm}
+
+% if you use cleveref..
+\usepackage[capitalize,noabbrev]{cleveref}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% THEOREMS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{assumption}[theorem]{Assumption}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+% Todonotes is useful during development; simply uncomment the next line
+%    and comment out the line below the next line to turn off comments
+%\usepackage[disable,textsize=tiny]{todonotes}
+\usepackage[textsize=tiny]{todonotes}
+
+\usepackage{xcolor}
+\usepackage{listings}
+\lstset{basicstyle=\ttfamily,
+  showstringspaces=false,
+  commentstyle=\color{red},
+  keywordstyle=\color{blue},
+  numbers=left, numberstyle=\scriptsize
+}
+
+%\usepackage[T1]{fontenc}
+
+
+
+
+\usepackage[square,numbers]{natbib}
+
+
+
+
+\slimtitle{Kaldi Tedlium s5\_r3 Writeup}
+\slimauthor{Sourya Kakarla}
+
+
+\begin{document}
+
+\lightertitle{Kaldi Tedlium s5\_r3 Pipeline Writeup}
+
+\lighterauthor{Sourya Kakarla (sk5057)}
+
+%\lighteremail{xxx@xxx.com}
+
+
+%\input{content/abstract}
+
+
+\section{Introduction}
+
+
+%cmd.sh
+
+%decode_nj - decoding is very expensive
+%comment out most of the decoding
+%only in last stage
+
+%nj : number of jobs is related to number of processors 4 or 8
+
+%Staging allows you to start from where you left off by setting the stage variable
+
+%train_rnnlm : Should script train a language model using a RNN. Most cases you just want to download the RNNLM for rescoring.
+%should it train the rnnlm
+
+\includegraphics{figure/Kaldi.drawio.pdf}
+
+%stm file format
+
+
+\section{Stages}
+\input{content/stage0}
+\input{content/stage1}
+\input{content/stage2}
+\input{content/stage3}
+\input{content/stage4}
+\input{content/stage5}
+\input{content/stage6}
+\input{content/stage7}
+\input{content/stage8}
+\input{content/stage9}
+\input{content/stage10}
+\input{content/stage11}
+\input{content/stage12}
+\input{content/stage13}
+\input{content/stage14}
+\input{content/stage15}
+\input{content/stage16}
+\input{content/stage17}
+\input{content/stage18}
+\input{content/stage19}
+
+
+
+%\input{content/format}
+%\input{content/others}
+%\bibliographystyle{ACM-Reference-Format}
+
+
+\bibliographystyle{abbrvnat}
+\bibliography{ref}
+%\printbibliography
+%\newpage
+%\appendix
+%\input{content/appendix}
+
+\end{document}

@@ -1,0 +1,6 @@
+\subsection{ Stage 13 - Compute Pronunciations and Probabilities}
+Linear lattices are computed for each utterance in the training data \path{data/train/} by using the latest alignment \path{exp/tri2} and language model \path{data/lang_nosp/} by running the script \path{steps/get_prons.sh}.
+
+A lattice is a representation of the alternative word-sequences that are "sufficiently likely" for a particular utterance~\cite{kaldilattice}. Files of the form \path{prons.*.gz} are generated and the various counts of pronunciations are computed which are used in the next step in this stage.
+
+Next, by running the \path{utils/dict_dir_add_pronprobs.sh} on the counts obtained from above, a modified dictionary directory with pronunciation probabilities is computed in \path{data/local/dict/}, for example \path{data/local/dict/lexiconp.txt} and \path{data/local/dict/lexiconp_silprob.txt} which includes the silence probabilities as well.

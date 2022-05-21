@@ -1,0 +1,9 @@
+\subsection{ Stage 8 - Monohpone Model Training  }
+In this stage, the monophone models are trained using the \path{train_mono.sh} script on the \path{data/train_10kshort_nodup.sh} (generated in the previous stage) and \path{data/lang_nosp} and are saved in the \texttt{exp/mono/} directory. 
+
+This is the primary step of the actual training process in the pipeline. The smaller subset of 10k utterances is used to achieve efficiency. Even with little data, satisfactory monophone models can be trained and are used to bootstrap training for later models in the upcoming stages.
+
+The monophone model is a purely acoustic model and does not include any contextual information about the adjacent phones. It is the building block for the models which have context embedded into them (such as the triphone in the next stage).
+
+
+%steps/diagnostic/analyze_alignments.sh --cmd run.pl data/lang_nosp exp/mono

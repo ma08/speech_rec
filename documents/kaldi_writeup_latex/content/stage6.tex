@@ -1,0 +1,17 @@
+\subsection{ Stage 6 - Feature Extraction }
+
+
+In this stage, MFCC features are extracted for all the 3 data partitions (test, dev, and train) 
+using the \texttt{steps/make\_mfcc.sh} script on the data placed in the \texttt{data/<\$set>} 
+($\$set = {test,dev,train}$) directories. It uses the \texttt{compute-mfcc-feats} command-line tool
+to produce the required MFCC features. A broad overview~\cite{mfcc} of the MFCC feature extractions is as follows:
+\begin{itemize}
+    \item Work out the number of frames in the file (typically 25 ms frames shifted by 10ms each time).
+    \item For each frame: 
+        \begin{itemize}
+         \item Extract the data, do optional dithering, preemphasis and dc offset removal, and multiply it by a windowing function.
+         \item Calculate the energy (negative log), do FFT and compute the power spectrum.
+         \item Compute log of the energy in each mel bin and take cosine transform keeping the required number of coefficients.
+        \end{itemize}
+\end{itemize}
+Further, cepstral mean and variance statistics (CMVN)~\cite{kaldicmvn} per speaker are computed for all the 3 data partitions using the \path{steps/compute_cmvn_stats.sh} script which helps in compensation of noise and reduces mismatch between different data partitions.

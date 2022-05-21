@@ -1,0 +1,23 @@
+\subsection{Stage 3 - Pepare Language Files}
+In this stage, the \path{utils/prepare_lang.sh} script is run with following parameters as input
+\begin{itemize}
+    \item \path{data/local/dict_nosp} (dictionary source directory)
+    \item \path{<unk>} (lexical entry for uknown)
+    \item \path{data/local/lang_nosp} (temporary directory for processing)
+    \item \path{data/lang_nosp} (target language directory)
+\end{itemize}
+
+It prepares the \texttt{data/lang\_nosp/} directory in the Kaldi standard format which contains the following files and folders. \texttt{nosp} refers to the model before computation of silence probabilities and pronunciation.
+\begin{itemize}
+    \item \texttt{G.fst}: Finite State Transducer form of the language model.
+    \item \texttt{L.fst}: Finite State Transducer form of the lexicon .
+    \item \path{L_disambig.fst}: The lexicon, as above but including the disambiguation symbols \#1, \#2, and so on, as well as the self-loop with \#0 on it to "pass through" the disambiguation symbol from the grammar.
+    \item \texttt{oov.txt}: Contains a single line of the format \texttt{<unk>} which is the word to which all out-of-vocabulary words map to during training.
+    \item \texttt{oov.int}: Integer form of the above (\texttt{38}).
+    \item \texttt{phones/}: Directory containing various files regarding the phone set. Most of the files exist in 3 separate versions - \texttt{txt}, \texttt{int}, and \texttt{csl}.
+    \item \texttt{phones.txt}: Symbol-table file, in the OpenFst format, where each line is in the text form and integer form. Example: \texttt{T\_E 132}. Used by Kaldi to map back and forth between the integer and text forms of these symbols.
+    \item \texttt{words.txt}: Similar to \texttt{phones.txt} but for words. Example: \texttt{arsenal 7054}.
+    \item \texttt{topo}: Specifies the topology of the HMMS used.
+\end{itemize}
+
+All the generated files are validated using \path{utils/validate_lang.pl} script.

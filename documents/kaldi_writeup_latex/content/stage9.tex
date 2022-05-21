@@ -1,0 +1,13 @@
+\subsection{ Stage 9 - Align Monophones and Train delta-based triphones  }
+By running the script \path{align_si.sh}, data in \path{data/train} is aligned using model (through deltas) from \path{exp/mono/} and the alignments are put in \path{exp/mono_ali}. Further, delta-based triphones are trained using the language model \path{data/lang_nosp} and  monophone alignments \path{mono_ali} and are placed in the \path{exp/tri1/} directory.
+
+Even though the parameters of the acoustic model are estimated in the monophone model training in the previous stage, the aim is to improve it in this stage using contextual information, thus the triphones. Viterbi training is used to achieve this. By aligning the audio to the transript from the training data with the most current acoustic model, training algorithms use this to improve the parameters of the model. 
+
+
+As only a small subset of all triphone possibilites are actually relevant for the model, phonetic decision tree groups are used to classify the phones into a minimal set of acoustically distinct units, thus reducing the number of parameters.
+
+Consequently, each training step is followed by an alignment step so that the audio and the text can be realigned.
+
+
+
+

@@ -1,0 +1,21 @@
+\subsection{Stage 1 - Prepare Data}
+
+In this stage, processing on the data downloaded in Stage 0 is done by running the script \path{prepare_data.sh} and files of different kinds are generated for the dev, test, and train partitions which will be used in the later stages as part of language model training and so on.
+They are as follows:
+\begin{itemize}
+    \item \texttt{text}: Contains mappings between utterances (transciptions) and utterance ids which will be used by Kaldi
+    \item \texttt{segments}: Contains mappings between \texttt{utterance-id} and segment of a particular recording. It contains the start and end times for each utterance in an audio file. It is of the format 
+    \texttt{utt\_id file\_id start\_time end\_time} ~\cite{kalditut}.
+
+    \item \texttt{utt2spk }: One-to-one mapping between utterance ids and the corresponding speaker identifiers. 
+    \item \texttt{spk2utt}: Mapping between the speaker identifiers and all the utterance identifiers associated with the speaker recording. 
+    \item \texttt{wav.scp}: A list of Utterances to Filenames with each line of format \path{<recording_id> <extended_filename>}
+    \item \texttt{reco2file\_and\_channel}: Used when scoring (measuring error rates) with NIST's \emph{sclite} tool.
+    \item \texttt{glm}: An empty glm file is generated.
+\end{itemize}
+
+As part of the processing, silence is padded to the segments, especially at the beginning.
+Further, the speakers are split into 3-minutes chunks by running the \texttt{utils/data/modify\_speaker\_info.sh}
+The generated files are validated to check if they meet Kaldi's format specifications.
+
+

@@ -1,0 +1,7 @@
+\subsection{ Stage 16 - Cleanup Segmentation}
+The segmentation done earlier is improved by running the script \path{run_cleanup_segmentation.sh} which re-segments the training data by selecting only "good" audio that matches the transcripts.
+
+In running the script, \path{steps/cleanup/clean_and_segment_data.sh} script is used to clean the training data based on the acoustic and language models trained so far.
+
+Next, updated alignments are computed using the \path{steps/align_fmllr.sh} script. Further, Speaker Adaptive Training is redone with latest segmentations.
+Finally decoding (fMLLR) and rescoring is like in the previous stage.

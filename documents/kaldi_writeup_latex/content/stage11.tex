@@ -1,0 +1,5 @@
+\subsection{ Stage 11 - Align delta-based triphones and Train (LDA-MLLT)}
+Similar to the first part of Stage 9, triphones are aligned by running the \path{align_si.sh} , the difference being \path{exp/tri1/} being the input model and output alignments placed in \path{exp/tri1_ali}.
+
+A triphone model with LDA (Linear Discriminant Analysis)~\cite{kaldilda} and MLLT (Maximum Likelihood Linear Transform)~\cite{kaldimllt} feature transforms is trained using the training alignments obtained from above (\path{exp/tri1_ali}) by running the \path{steps/train_lda_mllt.sh} script and the new model is placed in \path{exp/tri2} directory.
+

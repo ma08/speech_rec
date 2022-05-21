@@ -1,0 +1,4 @@
+\subsection{Stage 0 - Download TEDLIUM release-3 data}
+In this stage, the \path{local/download_data.sh} script is run to download the Tedlium dataset \href{http://www.openslr.org/resources/51/TEDLIUM_release-3.tgz }{from OpenSLR} using \texttt{wget}.
+The downloaded \path{TEDLIUM_release-3.tgz} is saved in the \texttt{db/} folder and extracted there.
+After downloading the data, \path{download_data.sh} finally validates the number of \texttt{.sph} files in the \path{TEDLIUM_release-3/data/} directory. The expected count is $2351$ if everything goes well.

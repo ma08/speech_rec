@@ -1,0 +1,11 @@
+\subsection{Stage 2 - Prepare Dictionary}
+In this stage, \path{prepare_dict.sh} script is run to create the files at \path{data/local/dict_nosp} required downstream for the language model.
+The main steps in this stage are as follows:
+\begin{itemize}
+    \item Processing is done on the \path{db/TEDLIUM_release-3/TEDLIUM.152k.dic} dictionary by ignoring instances of \texttt{<unk>}, entries with numbers, and sorting alphabetically to create the \path{data/local/dict_nosp/lexicon_words.txt}.
+    
+    \item Files are created for non-silent phones (\path{data/local/dict_nosp/nonsilence_phones.txt}) and silent phones respectively (\path{data/local/dict_nosp/silence_phones.txt}). The silent phones are \texttt{SIL} (silence) and \texttt{NSN} (non-spoken noise).
+    
+    \item \path{optional_silence.txt} is generated which simply contains an \texttt{SIL} model.
+    \item \path{data/local/dict_nosp/lexicon.txt} is created by taking unique entries from \texttt{lexicon\_words.txt} and adding the silence (\texttt{SIL}) and noise (\texttt{NSN}) phones to them. The lines in the \texttt{lexicon.txt} are in the format of \texttt{word phone1 phone2...phoneN}
+\end{itemize}

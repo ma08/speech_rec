@@ -1,0 +1,4 @@
+\subsection{ Stage 7 - Select 10k Shortest Utterances }
+In this stage, 10k shortest utterances are selected using the \path{utils/subset_data_dir.sh}
+script from the \texttt{data/train} directory and put in \path{data/train_10kshort}. Further, excessive repetitions of utterances are eliminated if they occur more than a particular number of times (10) and output is placed in \path{ data/train_10kshort_nodup} directory by running the \path{remove_dup_utts.sh} with the maximum allowed number of repetitions as 10. The number of utterances drop to 9135 from 10000. This subset creation is useful for monophone training downstream.
+

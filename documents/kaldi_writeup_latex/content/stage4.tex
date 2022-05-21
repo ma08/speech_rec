@@ -1,0 +1,10 @@
+\subsection{Stage 4 - Train or Download Language Model}
+Depending upon the \path{train_lm} variable in \texttt{run.sh}, this stage trains a language model by running the \path{ted_train_lm.sh} script which trains a language model using the TEDLIUM 6 data sources if \path{train_lm} is set to \texttt{true} or runs \path{ted_download_lm.sh} to download ARPA-style 4-gram language models (arpa.gz) from \url{kaldi-asr.org} if otherwise. By default, \path{train_lm} is set to \texttt{fasle}.
+
+In the \path{ted_train_lm.sh} script, the training is does on Cantab-Tedlium text data and tedlium acoustic training data which from the earlier stages.
+It is based on the example scripts that come with PocoLM~\cite{pocolm} and creates models in the ARPA format~\cite{arpaformat}.
+
+%explaination about ted_train_lm if possibles
+
+
+

@@ -1,0 +1,4 @@
+\subsection{ Stage 19 - Rescore Lattices (Pruned Algorithm)}
+This is the last stage of the pipeline. The script \path{rnnlm/lmrescore_pruned.sh} is run to rescore lattices with Kaldi RNNLM using a pruned algorithm~\cite{8461974}. This algorithm improves the n-gram approximation
+method. The pruned algorithm further limits the search space and uses heuristic search to pick better histories when expanding the lattice. It achieves better ASR accuracies while running much
+faster than the standard algorithm.

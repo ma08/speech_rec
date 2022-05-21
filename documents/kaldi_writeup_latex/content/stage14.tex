@@ -1,0 +1,4 @@
+\subsection{ Stage 14 - Language Prep, Decoding, and Rescoring}
+The first step in this stage is similar to Stage 3 except that \path{data/local/dict/} is used to generate the files at \path{data/lang/} (as opposed to \path{data/lang_nosp/})  as the dictionary source directory as we now have the probabilities.
+
+The decoding graph is now recomputed in \path{exp/tri2/graph/} using the new language files at \path{data/lang/} and decoding is done as before. Rescoring is done to evaluate the performance of the upgraded language model.

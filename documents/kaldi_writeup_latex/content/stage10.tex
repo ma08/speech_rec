@@ -1,0 +1,11 @@
+\subsection{ Stage 10 - Decoding and Rescoring}
+A fully expanded decoding graph (HCLG.fst model) is computed at \path{exp/tri2/graph_nosp} by running \path{utils/mkgraph.sh} that represents the language-model, lexicon, context-dependency, and HMM structure in the model. HCLG = H o C o L o G~\cite{decodinggraph}.
+
+\begin{itemize}
+    \item G is an acceptor (i.e. its input and output symbols are the same) that encodes the grammar or language model.
+    \item L is the lexicon; its output symbols are words and its input symbols are phones.
+    \item C represents the context-dependency: its output symbols are phones and its input symbols represent context-dependent phones, i.e. windows of N phones.
+    \item H contains the HMM definitions; its output symbols represent context-dependent phones and its input symbols are transition-ids, which encode the pdf-id and other information. 
+\end{itemize}
+
+After the HCLG graph is calculated, decoding the utterances using the graph is done by running \path{steps/decode.sh} on the graph at \path{exp/tri2/graph_nosp} and WERs are calculated using \path{lmrescore_const_arpa.sh} which rescores the lattices with ConstArpaLm format language model.

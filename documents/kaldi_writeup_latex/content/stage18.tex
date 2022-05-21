@@ -1,0 +1,5 @@
+\subsection{ Stage 18 - Download or Run RNNLM}
+Based on the variable \path{train_rnnlm}, a language model is downloaded (if \texttt{False}) using \path{local/ted_download_rnnlm.sh} or a Recurrent Neural Network Language Model is trained locally by running the 
+\path{local/rnnlm/tuning/run_lstm_tdnn_a.sh} and \path{local/rnnlm/average_rnnlm.sh} scripts. A RNN language model is better performing than an n-gram model as it deals well with the sparseness. 
+
+After necessary preparation and configuration steps, it is by running \path{rnnlm/train_rnnlm.sh} script the model is first trained. Later, \path{average_rnnlm.sh} script takes the default \path{rnnlm_dir} of the recipe and averages the best model and the 10 previous and following ones (if they exist).

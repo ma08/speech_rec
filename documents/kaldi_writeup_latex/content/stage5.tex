@@ -1,0 +1,9 @@
+\subsection{Stage 5 - Format Language Model}
+
+In this stage, the \texttt{format\_lms.sh} script is run to generate certain language models in suitable formats as follows:
+\begin{itemize}
+    \item The script checks for the existence of \texttt{data/lang\_nosp/G.fst} and if not available, creates it by converting the ARPA-format language model \path{4gram_small.arpa.gz} into an OpenFST format using \texttt{arpa2fst}~\cite{arpa2fst} which is a Kaldi program that turns the ARPA-format language model into a Weight Finite State Transducer. Further, it verifies if \texttt{G.fst} is stochastic enough using \texttt{fstistochastic}.
+    \item It checks for the \texttt{data/lang\_nosp/G.carpa} and if not available, creates it by converting the ARPA-format language model \path{4gram_big.arpa.gz} into a ConstArpaLm~\cite{constarpa}  format model by running the script \path{utils/build_const_arpa_lm.sh }. This model is used downstream for rescoring.
+\end{itemize} 
+ It also performs a series of checks on the encoding of all the files in \path{data/lang_nosp/} directory using the \path{utils/validate_lang.pl} script.
+%cite https://kaldi-asr.org/doc/data_prep.html

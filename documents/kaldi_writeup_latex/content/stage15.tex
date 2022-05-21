@@ -1,0 +1,8 @@
+\subsection{ Stage 15 - Realign Trihpones and Speaker Adaptive Training (SAT) }
+The tirphone alignments are recomputed using the latest language files (with pronunciation probabilities) from the previous stage.
+
+Next, Speaker Adaptive Training is done by running \path{steps/train_sat.sh} using the latest language model and alignments and a new triphone model is generated at \path{exp/tri3/}. SAT performs speaker and noise normalization by adapting to each speaker with a particular data transform resulting in more homogeneous data. This allows the model to be phoneme based than speaker and/or environment based.
+
+In this stage, the decoding step has a significant alteration. The script \path{steps/decode_fmllr.sh} is run for the decoding after the graph creation as opposed to \path{steps/decode.sh} in the previous stages. This script uses feature-space MLLR (fMLLR)\cite{fmllr} transform for the first time in this recipe for speaker adaptive decoding.
+
+Finally rescoring is done using the lastest model and outputs from the fMLLR decoding.
