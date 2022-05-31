@@ -458,3 +458,6 @@ documenting in findings.md
 
 ### added kaldi_tamtel_db submodule
 git submodule update --init --recursive
+
+
+git submodule update --remote

@@ -32,3 +32,5 @@ echo_ts "FINISHED STAGE 4"
 echo_ts "STARTING STAGE 5"
 ./fix_whitespace.sh stage4_out.txt > stage5_out.txt
 echo_ts "FINISHED STAGE 5"
+
+#After this merge original corpus with one from iitm
