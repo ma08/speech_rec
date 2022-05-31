@@ -20,6 +20,7 @@ testing and iterations.
 ## Folder Structure
 - [Dataset Related](dataset_related/) Preprocessing and utility scripts for the speech datasets to create input data files for kaldi.
 - [Language Model](dataset_related/) Preprocessing and utility scripts for  language corpora for building Language Models.
-- [Kaldi Recipe](kaldi_tamtel_recipe/) Kaldi recipes used in this project.
-- [Kaldi DB](kaldi_tamtel_db/) Some of Kaldi data files source versioned to maintain history across stages.
+- [Kaldi Recipe](https://github.com/ma08/kaldi_tamtel/) Kaldi recipes repo used in this project.
+- [Kaldi DB](https://github.com/ma08/kaldi_tamtel_db/) Repository that maintains history of some of Kaldi data files to track changes across different stages. 
+  - TODO: Explore git-lfs to store all data files for more comprehensive versioning.
 - [Documents](documents/) Documents written for this project.
