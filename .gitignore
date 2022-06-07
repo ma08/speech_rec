@@ -1,2 +1,7 @@
 # txts/
 unified*
+__pycache__/print_timestamp_module.cpython-39.pyc
+__pycache__/utility_module.cpython-39.pyc
+dataset_related/__pycache__/helper.cpython-39.pyc
+dataset_related/target_file
+lang_model/preprocessing/errors.log
