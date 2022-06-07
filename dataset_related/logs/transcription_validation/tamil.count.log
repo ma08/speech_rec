@@ -1,0 +1,28 @@
+==============Running validation for tamil_db_files/dataset_files/commonvoice_tamil/transcription==============
+==============Running validation for tamil_db_files/dataset_files/commonvoice_tamil/transcription/train==============
+File tamil_db_files/dataset_files/commonvoice_tamil/transcription/train/text Total line count:38077 word count: 290481, illegal word count: 2156
+==============Running validation for tamil_db_files/dataset_files/commonvoice_tamil/transcription/dev==============
+File tamil_db_files/dataset_files/commonvoice_tamil/transcription/dev/text Total line count:11473 word count: 81731, illegal word count: 73
+==============Running validation for tamil_db_files/dataset_files/commonvoice_tamil/transcription/test==============
+File tamil_db_files/dataset_files/commonvoice_tamil/transcription/test/text Total line count:11499 word count: 71814, illegal word count: 145
+==============Running validation for tamil_db_files/dataset_files/iitm_asr_tamil/transcription==============
+==============Running validation for tamil_db_files/dataset_files/iitm_asr_tamil/transcription/train==============
+File tamil_db_files/dataset_files/iitm_asr_tamil/transcription/train/text Total line count:69146 word count: 566465, illegal word count: 24
+==============Running validation for tamil_db_files/dataset_files/iitm_asr_tamil/transcription/dev==============
+File tamil_db_files/dataset_files/iitm_asr_tamil/transcription/dev/text Total line count:2950 word count: 24825, illegal word count: 0
+==============Running validation for tamil_db_files/dataset_files/iitm_asr_tamil/transcription/test==============
+File tamil_db_files/dataset_files/iitm_asr_tamil/transcription/test/text Total line count:2950 word count: 24888, illegal word count: 2
+==============Running validation for tamil_db_files/dataset_files/openslr_tamil/transcription==============
+==============Running validation for tamil_db_files/dataset_files/openslr_tamil/transcription/train==============
+File tamil_db_files/dataset_files/openslr_tamil/transcription/train/text Total line count:4206 word count: 28771, illegal word count: 336
+==============Running validation for tamil_db_files/dataset_files/openslr_tamil/transcription/dev==============
+File tamil_db_files/dataset_files/openslr_tamil/transcription/dev/text Total line count:42 word count: 305, illegal word count: 1
+==============Running validation for tamil_db_files/dataset_files/openslr_tamil/transcription/test==============
+File tamil_db_files/dataset_files/openslr_tamil/transcription/test/text Total line count:42 word count: 275, illegal word count: 0
+==============Running validation for tamil_db_files/dataset_files/microsoft_tamil/transcription==============
+==============Running validation for tamil_db_files/dataset_files/microsoft_tamil/transcription/train==============
+File tamil_db_files/dataset_files/microsoft_tamil/transcription/train/text Total line count:38740 word count: 240990, illegal word count: 1365
+==============Running validation for tamil_db_files/dataset_files/microsoft_tamil/transcription/dev==============
+File tamil_db_files/dataset_files/microsoft_tamil/transcription/dev/text Total line count:391 word count: 2480, illegal word count: 9
+==============Running validation for tamil_db_files/dataset_files/microsoft_tamil/transcription/test==============
+File tamil_db_files/dataset_files/microsoft_tamil/transcription/test/text Total line count:3081 word count: 29351, illegal word count: 232
