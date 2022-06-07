@@ -2,9 +2,7 @@ import os
 import sys
 import random
 
-microsoft_train_file = "./dataset_files/microsoft_tamil/train_transcription.txt"
 
-openslr_text_corpus_file="./dataset_files/openslr_tamil/combined.tsv"
 
 def create_dev_test_train_from_full(text_file_name):
     #Get parent directory of text_file_name
@@ -58,9 +56,14 @@ def create_dev_partition_from_train(text_file_name):
 
         with open(os.path.join(parent_dir,"new_train_transcription.txt"), 'w') as file:
             file.write('\n'.join(new_train_lines))
+
 if(len(sys.argv)>1):
     create_dev_partition_from_train(sys.argv[1])
 else:
-    # create_dev_partition_from_train(microsoft_train_file)
-    create_dev_test_train_from_full(openslr_text_corpus_file)
+    # microsoft_tamil_train_file = "./tamil_db_files/dataset_files/microsoft_tamil/train_transcription.txt"
+    microsoft_telugu_train_file = "./telugu_db_files/dataset_files/microsoft_telugu/train_transcription.txt"
+    # openslr_text_corpus_file="./dataset_files/openslr_tamil/combined.tsv"
+    # create_dev_partition_from_train(microsoft_tamil_train_file)
+    create_dev_partition_from_train(microsoft_telugu_train_file)
+    # create_dev_test_train_from_full(openslr_text_corpus_file)
 
