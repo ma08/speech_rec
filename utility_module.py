@@ -100,12 +100,35 @@ def punctuation_and_others_remove(text_data):
     punctuation ="".join([t for t in text_data if t not in punc_char_string])  
     return punctuation
 
-r = re.compile(r'^[\u0B80-\u0BFF]+$')
+tamil_r = re.compile(r'^[\u0B80-\u0BFF]+$')
 def check_if_tamil_word(word):
-    if(r.search(word)):
+    if(tamil_r.search(word)):
         return True
     else:
         return False
+
+#https://unicode.org/charts/PDF/U0C00.pdf
+telugu_r = re.compile(r'^[\u0C00-\u0C7F]+$')
+def check_if_telugu_word(word):
+    if(telugu_r.search(word)):
+        return True
+    else:
+        return False
+
+re_dic = {
+    'te': telugu_r,
+    'ta': tamil_r,
+}
+
+
+def check_if_legal_lang_word(word, lang='te'):
+    lang_r = re_dic[lang]
+    if(lang_r.search(word)):
+        return True
+    else:
+        return False
+
+
 
 '''
 உருவாக்கப்பட்டதுஇதுExpressinho
