@@ -25,3 +25,23 @@
   - Going ahead and running telugu without normalizing (not worth the effort?)
 
 - Validation of pure telugu
+  - stored count and illegal word logs in logs/transcript_validation (for tamil too)
+    - For tamil, removing of characters like U+200c : ZERO WIDTH NON-JOINER from corpus affected ? TODO: verify
+    - For telugu, removing illegal characters including zero width non-joiner
+      - created clean_transcript module
+        - removing punctuation using function utility
+        - removing few by hand to save time
+          - & -> అన్డ్
+          - tem_07220_01981175708	 (removed)
+          - GPS -> జిపిఎస్ 
+        - fix whitespace?
+      - should do same for corpus for lang model as well
+      - created new transcripts
+      - obtained 0 illegal counts through validation after preprocessing
+        ```
+        sourya4@IWeighHar:~/pro/columbia/spring22/fund_sp_rec/speech_rec_repo/dataset_related$ python3 clean_transcript.py > logs/telugu_transcript_preprocess3.log
+        sourya4@IWeighHar:~/pro/columbia/spring22/fund_sp_rec/speech_rec_repo/dataset_related$ python3 validate_transcript.py > logs/telugu_processed.count.log
+        ```
+- create data files
+
+

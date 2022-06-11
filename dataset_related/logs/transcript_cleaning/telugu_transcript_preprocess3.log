@@ -1,0 +1,14 @@
+==============Running validation for telugu_db_files/dataset_files/microsoft_telugu/transcription==============
+==============Running validation for telugu_db_files/dataset_files/microsoft_telugu/transcription/train==============
+File telugu_db_files/dataset_files/microsoft_telugu/transcription/train/text Total line count:0 word count: 219944, illegal word count: 0 processed_word_count: 0
+==============Running validation for telugu_db_files/dataset_files/microsoft_telugu/transcription/dev==============
+File telugu_db_files/dataset_files/microsoft_telugu/transcription/dev/text Total line count:0 word count: 24856, illegal word count: 0 processed_word_count: 0
+==============Running validation for telugu_db_files/dataset_files/microsoft_telugu/transcription/test==============
+File telugu_db_files/dataset_files/microsoft_telugu/transcription/test/text Total line count:0 word count: 28413, illegal word count: 0 processed_word_count: 0
+==============Running validation for telugu_db_files/dataset_files/openslr_telugu/transcription==============
+==============Running validation for telugu_db_files/dataset_files/openslr_telugu/transcription/train==============
+File telugu_db_files/dataset_files/openslr_telugu/transcription/train/text Total line count:0 word count: 17951, illegal word count: 115 processed_word_count: 115
+==============Running validation for telugu_db_files/dataset_files/openslr_telugu/transcription/dev==============
+File telugu_db_files/dataset_files/openslr_telugu/transcription/dev/text Total line count:0 word count: 2204, illegal word count: 16 processed_word_count: 16
+==============Running validation for telugu_db_files/dataset_files/openslr_telugu/transcription/test==============
+File telugu_db_files/dataset_files/openslr_telugu/transcription/test/text Total line count:0 word count: 2277, illegal word count: 13 processed_word_count: 13

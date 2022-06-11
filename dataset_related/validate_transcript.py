@@ -30,7 +30,7 @@ def count_illegal_words(file, lang='te'):
 				total_word_count+=1
 				if(not utility_module.check_if_legal_lang_word(word, lang)):
 					illegal_word_count+=1
-					print(f"In line number {line_num} : {line}\t{word}\t{repr(word).encode('utf-8')}")
+					# print(f"In line number {line_num} : {line}\t{word}\t{repr(word).encode('utf-8')}")
 			
 			line_num+=1
 	
