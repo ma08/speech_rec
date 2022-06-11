@@ -43,5 +43,11 @@
         sourya4@IWeighHar:~/pro/columbia/spring22/fund_sp_rec/speech_rec_repo/dataset_related$ python3 validate_transcript.py > logs/telugu_processed.count.log
         ```
 - create data files
+  - create audio folders and move to db/ (same recipe folder used for tamil )
+    - microsoft_telugu/Audio
+    - openslr_telugu/Audio
+  - Update create_data_files for telugu
+  - Oops. Ran with old function (Tamil) for openslr_Telugu. Checked if text file got messed. Didnt.
+  - 
 
 
