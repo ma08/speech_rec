@@ -136,7 +136,7 @@ def create_files_telugu(folder_path, dataset_name):
         #Open and write to file line by line
         target_folder = f"{folder_path}/transcription/{partition}"
         Path(target_folder).mkdir(parents=True, exist_ok=True)
-        transcript_file = f"{folder_path}/{partition}/text"
+        transcript_file = f"{folder_path}/transcription/{partition}/text"
 
         segment_file = f"{folder_path}/transcription/{partition}/segments"
         utt2spk_file = f"{folder_path}/transcription/{partition}/utt2spk"
