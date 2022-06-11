@@ -126,6 +126,46 @@ def process_tamil_transcript(file_path, dataset_name):
 
 
 
+def create_files_telugu(folder_path, dataset_name):
+    folder_path_input = folder_path
+    folder_path = os.path.expanduser(folder_path)
+
+    for partition in "train", "dev", "test":
+        print(f"Running on {dataset_name} {partition}")
+        counter_files = 0
+        #Open and write to file line by line
+        target_folder = f"{folder_path}/transcription/{partition}"
+        Path(target_folder).mkdir(parents=True, exist_ok=True)
+        transcript_file = f"{folder_path}/{partition}/text"
+
+        segment_file = f"{folder_path}/transcription/{partition}/segments"
+        utt2spk_file = f"{folder_path}/transcription/{partition}/utt2spk"
+        utt2dur_file = f"{folder_path}/transcription/{partition}/utt2dur"
+        wav_scp_file = f"{folder_path}/transcription/{partition}/wav.scp"
+        audio_folder = f"{folder_path}/Audio"
+        audio_rel_folder = f"~/{os.path.relpath(audio_folder, home_path)}"
+
+        #text file already cleaned and formatted for telugu
+
+        with open(transcript_file, "r") as t_file:
+            file_stems = [line.rstrip().split('\t')[0] for line in t_file]
+            utt2spk_lines = get_utt2spk_lines(file_stems, dataset_name)
+            fstem_dur_secs = get_fstem_dur_secs(file_stems, dataset_name, audio_folder)
+            segment_lines = [f"{fstem_dur_sec[0]} {fstem_dur_sec[0]} 0.0 {fstem_dur_sec[1]}" for fstem_dur_sec in fstem_dur_secs]
+            utt2dur_lines = [f"{fstem_dur_sec[0]} {fstem_dur_sec[1]}" for fstem_dur_sec in fstem_dur_secs]
+            wavscp_lines  = get_wavscp_lines(file_stems, dataset_name, audio_rel_folder)
+
+            with open(segment_file, 'w') as file:
+                file.write('\n'.join(segment_lines))
+
+            with open(wav_scp_file, 'w') as file:
+                file.write('\n'.join(wavscp_lines))
+
+            with open(utt2spk_file, 'w') as file:
+                file.write('\n'.join(utt2spk_lines))
+
+            with open(utt2dur_file, 'w') as file:
+                file.write('\n'.join(utt2dur_lines))
 
 
 """
@@ -203,8 +243,16 @@ else:
     # microsoft_path = "tamil_db_files/dataset_files/microsoft_tamil"
     # microsoft_dataset_name = "microsoft"
     # create_files(microsoft_path, microsoft_dataset_name)
-    ittm_asr_path = "tamil_db_files/dataset_files/iitm_asr_tamil"
-    iitm_dataset_name = "iitm_asr"
-    create_files(ittm_asr_path, iitm_dataset_name)
+    # ittm_asr_path = "tamil_db_files/dataset_files/iitm_asr_tamil"
+    # iitm_dataset_name = "iitm_asr"
+    # create_files(ittm_asr_path, iitm_dataset_name)
+
+    microsoft_dataset_name = "microsoft"
+    microsoft_telugu_path = "~/kaldi/egs/tamil_telugu_proj/s5_r3/db/microsoft_telugu"
+    openslr_telugu = "~/kaldi/egs/tamil_telugu_proj/s5_r3/db/openslr_telugu"
+    openslr_dataset_name = "openslr"
+
+    create_files(openslr_telugu, openslr_dataset_name)
+    # create_files(microsoft_telugu_path, microsoft_dataset_name)
     # print("finished")
 
