@@ -48,6 +48,50 @@
     - openslr_telugu/Audio
   - Update create_data_files for telugu
   - Oops. Ran with old function (Tamil) for openslr_Telugu. Checked if text file got messed. Didnt.
-  - 
+  - Checking audio format
+    - #openslr
+      ```
+      sk5057@speech-rec-vm:~/kaldi/egs/tamil_telugu_proj/s5_r3/db/openslr_telugu/Audio$ soxi tef_01033_00007107192.wav
+
+      Input File     : 'tef_01033_00007107192.wav'
+      Channels       : 1
+      Sample Rate    : 48000
+      Precision      : 16-bit
+      Duration       : 00:00:03.84 = 184320 samples ~ 288 CDDA sectors
+      File Size      : 369k
+      Bit Rate       : 768k
+      Sample Encoding: 16-bit Signed Integer PCM
+      ```
+    - #microsoft
+      ```
+      sk5057@speech-rec-vm:~/kaldi/egs/tamil_telugu_proj/s5_r3/db/microsoft_telugu/Audio$ soxi 000010007.wav
+
+      Input File     : '000010007.wav'
+      Channels       : 1
+      Sample Rate    : 16000
+      Precision      : 16-bit
+      Duration       : 00:00:03.94 = 63040 samples ~ 295.5 CDDA sectors
+      File Size      : 126k
+      Bit Rate       : 256k
+      Sample Encoding: 16-bit Signed Integer PCM
+      ```
+    - found that openslr has 48khz
+      - convert it to 16khz. created convert_samplerate.sh and ran on openslr_telugu and copied to db
+        ```
+        sk5057@speech-rec-vm:~/kaldi/egs/tamil_telugu_proj/s5_r3/db/openslr_telugu/Audio$ soxi tef_01033_00007107192.wav
+
+        Input File     : 'tef_01033_00007107192.wav'
+        Channels       : 1
+        Sample Rate    : 16000
+        Precision      : 16-bit
+        Duration       : 00:00:03.84 = 61440 samples ~ 288 CDDA sectors
+        File Size      : 123k
+        Bit Rate       : 256k
+        Sample Encoding: 16-bit Signed Integer PCM
+        ```
+        TODO: check audio quality
+      - found that for tamil.... openslr has 48khz.. it seems we have used the audio without as it is. without changing. have to rerun it?
+    - 
+  
 
 
