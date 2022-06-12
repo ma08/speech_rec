@@ -171,7 +171,7 @@ def create_files_telugu(folder_path, dataset_name):
 """
 This is to create data files for the input folder when there are no splits needed for the audio files
 """
-def create_files(folder_path, dataset_name):
+def create_files_tamil(folder_path, dataset_name):
     folder_path_input = folder_path
     folder_path = os.path.expanduser(folder_path)
     # sample_path = "/home/sourya4/pro/columbia/spring22/fund_sp_rec/datasets/microsoftspeechcorpusindianlanguages/te-in-Train/Audios/000010013.wav"
@@ -226,7 +226,7 @@ def create_files(folder_path, dataset_name):
                 file.write('\n'.join(utt2dur_lines))
 
 if(len(sys.argv)>1):
-    create_files(sys.argv[1])
+    create_files_tamil(sys.argv[1])
 else:
     # mozilla_path = "tamil_db_files/dataset_files/commonvoice_tamil"
     # mozilla_dataset_name = "mozilla"
@@ -253,6 +253,6 @@ else:
     openslr_dataset_name = "openslr"
 
     # create_files_telugu(openslr_telugu, openslr_dataset_name)
-    create_files(microsoft_telugu_path, microsoft_dataset_name)
+    create_files_telugu(microsoft_telugu_path, microsoft_dataset_name)
     # print("finished")
 
