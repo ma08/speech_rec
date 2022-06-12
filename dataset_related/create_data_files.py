@@ -252,7 +252,7 @@ else:
     openslr_telugu = "~/kaldi/egs/tamil_telugu_proj/s5_r3/db/openslr_telugu"
     openslr_dataset_name = "openslr"
 
-    create_files_telugu(openslr_telugu, openslr_dataset_name)
-    # create_files(microsoft_telugu_path, microsoft_dataset_name)
+    # create_files_telugu(openslr_telugu, openslr_dataset_name)
+    create_files(microsoft_telugu_path, microsoft_dataset_name)
     # print("finished")
 
