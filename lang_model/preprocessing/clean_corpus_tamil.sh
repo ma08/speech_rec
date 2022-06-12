@@ -22,7 +22,7 @@ echo_ts "STARTING STAGE 2"
 echo_ts "FINISHED STAGE 2"
 
 echo_ts "STARTING STAGE 3"
-./replace_num.sh stage2_out.txt stage3_out.txt
+./replace_num_tamil.sh stage2_out.txt stage3_out.txt
 echo_ts "FINISHED STAGE 3"
 
 echo_ts "STARTING STAGE 4"
