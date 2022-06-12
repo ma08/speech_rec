@@ -91,7 +91,25 @@
         ```
         TODO: check audio quality
       - found that for tamil.... openslr has 48khz.. it seems we have used the audio without as it is. without changing. have to rerun it?
-    - 
+    - create spk2utt using script for both
+    - merge
+      - https://stackoverflow.com/questions/12616039/wc-command-of-mac-showing-one-less-result
+      - removed empty lines at end of files manually
+- Create lexicon
+  - found method in indic nlp library which gives orthographic for all indic languages
+    - installed library and resrouces in VM
+    - created method in utility module
+      ```
+      sk5057@speech-rec-vm:~/asr_project/git_repo/dataset_related$ python3 create_lexicon.py 
+      2022-06-12 22:17:54.736687 Total words: 295642, non telugu count 1 set count: 49169
+      ```
+    - add validate method for lexicon in create_lexicon module
+    - lexicon for telugu done
+      - TODO: use same method for tamil and verify difference?
+
+## telugu_run.sh
+- Create telugu_run.sh for telugu
+- change paths in stages and change other files as required
   
 
 

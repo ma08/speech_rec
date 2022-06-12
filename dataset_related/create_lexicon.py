@@ -79,6 +79,15 @@ def get_lexicon_telugu(folder_path):
 
             # print(lines)
 
+def check_lexicon(file_path, lang='te'):
+    count=0
+    with open(file_path, 'r') as file:
+        words = [line.split()[0] for line in file]
+        for word in words:
+            if(not utility_module.check_if_telugu_word(word)):
+                print(f"{word} is not a legal {lang} word")
+            count+=1
+    print(f"Total words: {count}")
 
 if(len(sys.argv)>1):
     pass
@@ -91,8 +100,10 @@ else:
     # kaldi_db = "~/kaldi/egs/tamil_telugu_proj/s5_r3/db/combined_transcription"
     # get_lexicon_tamil(kaldi_db)
 
-    kaldi_db_telugu = "~/kaldi/egs/tamil_telugu_proj/s5_r3/db/telugu_combined_transcription"
-    get_lexicon_telugu(kaldi_db_telugu)
+    # kaldi_db_telugu = "~/kaldi/egs/tamil_telugu_proj/s5_r3/db/telugu_combined_transcription"
+    # get_lexicon_telugu(kaldi_db_telugu)
+
+    check_lexicon("/home/sourya4/pro/columbia/spring22/fund_sp_rec/speech_rec_repo/kaldi_tamtel_db/telugu_combined_transcription/telugu.dic")
 	# print(f"print(split_word_to_letters('நட‌க்க')): {split_word_to_letters('நட‌க்க')}")
 	# print(f"print(split_word_to_letters('அதிகாரி﻿')): {split_word_to_letters('அதிகாரி﻿')}")
 	# print(split_word_to_letters("நட‌க்க"))
