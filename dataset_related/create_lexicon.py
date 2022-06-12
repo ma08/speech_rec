@@ -75,7 +75,7 @@ def get_lexicon_telugu(folder_path):
             file.write(f"{telugu_word}\t{' '.join(letters)}\n")
 
 
-    print(f"Total words: {total_count}, non tamil count {non_telugu_count} set count: {len(telugu_word_set)}")
+    print(f"Total words: {total_count}, non telugu count {non_telugu_count} set count: {len(telugu_word_set)}")
 
             # print(lines)
 
