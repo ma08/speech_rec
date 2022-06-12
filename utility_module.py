@@ -11,6 +11,16 @@ from pathlib import Path
 import string     
 import re
 
+
+from indicnlp import common
+# common.INDIC_RESOURCES_PATH="/home/sourya4/pro/repos/indic_nlp_resources"
+common.INDIC_RESOURCES_PATH="/home/sk5057/asr_project/indic_nlp_resources"
+from indicnlp import loader
+
+from indicnlp.syllable import  syllabifier
+
+
+
 mozillacv_tamil_path = "./dataset_files/commonvoice_tamil"
 def create_formatted_files_mozillacv(folder_path):
     clientid_set = set()
@@ -127,6 +137,12 @@ def check_if_legal_lang_word(word, lang='te'):
         return True
     else:
         return False
+
+
+
+def split_word_to_letters(word, lang='te'):
+    loader.load()
+    return syllabifier.orthographic_syllabify(word, lang)
 
 
 
