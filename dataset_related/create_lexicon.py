@@ -39,7 +39,7 @@ def get_lexicon_tamil(folder_path):
                     else:
                         tamil_word_set.add(word)
     
-    with open(f"{folder_path}/telugu.dic", 'w') as file:
+    with open(f"{folder_path}/tamil.dic", 'w') as file:
         for tamil_word in tamil_word_set:
             letters = split_word_to_letters(tamil_word)
             file.write(f"{tamil_word}\t{' '.join(letters)}\n")
@@ -69,13 +69,13 @@ def get_lexicon_telugu(folder_path):
                     else:
                         telugu_word_set.add(word)
     
-    with open(f"{folder_path}/lexicon.txt", 'w') as file:
+    with open(f"{folder_path}/telugu.dic", 'w') as file:
         for telugu_word in telugu_word_set:
             letters = utility_module.split_word_to_letters(telugu_word, 'te')
             file.write(f"{telugu_word}\t{' '.join(letters)}\n")
 
 
-    print(f"Total words: {total_count}, non telugu count {non_telugu_count} set count: {len(telugu_word_set)}")
+    print(f"Total words: {total_count}, non tamil count {non_telugu_count} set count: {len(telugu_word_set)}")
 
             # print(lines)
 
