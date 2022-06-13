@@ -26,7 +26,7 @@ echo_ts "STARTING STAGE 3"
 echo_ts "FINISHED STAGE 3"
 
 echo_ts "STARTING STAGE 4"
-./remove_chars_tamil.sh stage3_out_telugu.txt > stage4_out_telugu.txt
+./remove_chars_telugu.sh stage3_out_telugu.txt > stage4_out_telugu.txt
 echo_ts "FINISHED STAGE 4"
 
 echo_ts "STARTING STAGE 5"
