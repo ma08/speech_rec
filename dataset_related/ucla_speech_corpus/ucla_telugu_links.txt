@@ -1,4 +1,4 @@
-https://storage.googleapis.comtest_public_bucket/labelled/Telugu_BBC_News_Telugu_17-08-2021_00-57.zip | 116.64
+https://storage.googleapis.comtest_public_bucket/labelled/Telugu_BBC_News_Telugu_17-08-2021_00-57.zip
 https://storage.googleapis.comtest_public_bucket/labelled/Telugu_BBC_News_Telugu_17-08-2021_01-05.zip
 https://storage.googleapis.comtest_public_bucket/labelled/Telugu_BBC_News_Telugu_17-08-2021_01-12.zip
 https://storage.googleapis.comtest_public_bucket/labelled/Telugu_BBC_News_Telugu_17-08-2021_01-19.zip
@@ -6,29 +6,29 @@ https://storage.googleapis.comtest_public_bucket/labelled/Telugu_BBC_News_Telugu
 https://storage.googleapis.comtest_public_bucket/labelled/Telugu_BBC_News_Telugu_17-08-2021_01-35.zip
 https://storage.googleapis.comtest_public_bucket/labelled/Telugu_Chai_Bisket_Stories_16-08-2021_14-12.zip
 https://storage.googleapis.comtest_public_bucket/labelled/Telugu_Chai_Bisket_Stories_16-08-2021_14-14.zip
-https://storage.googleapis.comtest_public_bucket/labelled/Telugu_Chai_Bisket_Stories_16-08-2021_14-17.zip | 4.15
-https://storage.googleapis.comtest_public_bucket/labelled/Telugu_DD_Saptagiri_16-08-2021_14-12.zip | 21.51
+https://storage.googleapis.comtest_public_bucket/labelled/Telugu_Chai_Bisket_Stories_16-08-2021_14-17.zip
+https://storage.googleapis.comtest_public_bucket/labelled/Telugu_DD_Saptagiri_16-08-2021_14-12.zip
 https://storage.googleapis.comtest_public_bucket/labelled/Telugu_DD_Saptagiri_16-08-2021_14-14.zip
 https://storage.googleapis.comtest_public_bucket/labelled/Telugu_DD_Saptagiri_16-08-2021_14-17.zip
 https://storage.googleapis.comtest_public_bucket/labelled/Telugu_DD_Saptagiri_16-08-2021_14-19.zip
 https://storage.googleapis.comtest_public_bucket/labelled/Telugu_DD_Saptagiri_16-08-2021_14-23.zip
-https://storage.googleapis.comtest_public_bucket/labelled/Telugu_Josh_Talks_Telugu_16-08-2021_14-12.zip | 281.9
+https://storage.googleapis.comtest_public_bucket/labelled/Telugu_Josh_Talks_Telugu_16-08-2021_14-12.zip
 https://storage.googleapis.comtest_public_bucket/labelled/Telugu_Josh_Talks_Telugu_16-08-2021_14-14.zip
 https://storage.googleapis.comtest_public_bucket/labelled/Telugu_Josh_Talks_Telugu_16-08-2021_14-17.zip
 https://storage.googleapis.comtest_public_bucket/labelled/Telugu_Josh_Talks_Telugu_16-08-2021_14-19.zip
 https://storage.googleapis.comtest_public_bucket/labelled/Telugu_Josh_Talks_Telugu_16-08-2021_14-24.zip
 https://storage.googleapis.comtest_public_bucket/labelled/Telugu_Josh_Talks_Telugu_16-08-2021_14-34.zip
-https://storage.googleapis.comtest_public_bucket/labelled/Telugu_Telangana_Sahitya_Akademi_16-08-2021_14-12.zip | 34.83
+https://storage.googleapis.comtest_public_bucket/labelled/Telugu_Telangana_Sahitya_Akademi_16-08-2021_14-12.zip
 https://storage.googleapis.comtest_public_bucket/labelled/Telugu_Telangana_Sahitya_Akademi_16-08-2021_14-14.zip
 https://storage.googleapis.comtest_public_bucket/labelled/Telugu_Telangana_Sahitya_Akademi_16-08-2021_14-17.zip
 https://storage.googleapis.comtest_public_bucket/labelled/Telugu_Telangana_Sahitya_Akademi_16-08-2021_14-19.zip
 https://storage.googleapis.comtest_public_bucket/labelled/Telugu_Telangana_Sahitya_Akademi_16-08-2021_14-21.zip
 https://storage.googleapis.comtest_public_bucket/labelled/Telugu_Telangana_Sahitya_Akademi_16-08-2021_14-34.zip
 https://storage.googleapis.comtest_public_bucket/labelled/Telugu_Telangana_Sahitya_Akademi_16-08-2021_14-40.zip
-https://storage.googleapis.comtest_public_bucket/labelled/Telugu_Zee_Telugu_16-08-2021_14-12.zip | 7
+https://storage.googleapis.comtest_public_bucket/labelled/Telugu_Zee_Telugu_16-08-2021_14-12.zip
 https://storage.googleapis.comtest_public_bucket/labelled/Telugu_Zee_Telugu_16-08-2021_14-14.zip
 https://storage.googleapis.comtest_public_bucket/labelled/Telugu_Zee_Telugu_16-08-2021_14-17.zip
-https://storage.googleapis.comtest_public_bucket/labelled/Telugu_Zee_Telugu_16-08-2021_14-18.zip | 49
+https://storage.googleapis.comtest_public_bucket/labelled/Telugu_Zee_Telugu_16-08-2021_14-18.zip
 https://storage.googleapis.comtest_public_bucket/labelled/Telugu_iDream_Telugu_Movies_16-08-2021_14-12.zip
 https://storage.googleapis.comtest_public_bucket/labelled/Telugu_iDream_Telugu_Movies_16-08-2021_14-14.zip
 https://storage.googleapis.comtest_public_bucket/labelled/Telugu_iDream_Telugu_Movies_16-08-2021_14-17.zip
@@ -36,7 +36,7 @@ https://storage.googleapis.comtest_public_bucket/labelled/Telugu_iDream_Telugu_M
 https://storage.googleapis.comtest_public_bucket/labelled/Telugu_iDream_Telugu_Movies_16-08-2021_14-21.zip
 https://storage.googleapis.comtest_public_bucket/labelled/Telugu_iDream_Telugu_Movies_16-08-2021_14-34.zip
 https://storage.googleapis.comtest_public_bucket/labelled/Telugu_iDream_Telugu_Movies_16-08-2021_14-40.zip
-https://storage.googleapis.comtest_public_bucket/labelled/Telugu_newsonair.nic.in_16-08-2021_06-17.zip | 719.35
+https://storage.googleapis.comtest_public_bucket/labelled/Telugu_newsonair.nic.in_16-08-2021_06-17.zip
 https://storage.googleapis.comtest_public_bucket/labelled/Telugu_newsonair.nic.in_16-08-2021_06-30.zip
 https://storage.googleapis.comtest_public_bucket/labelled/Telugu_newsonair.nic.in_16-08-2021_06-45.zip
 https://storage.googleapis.comtest_public_bucket/labelled/Telugu_newsonair.nic.in_16-08-2021_07-01.zip
