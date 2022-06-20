@@ -110,6 +110,214 @@
 ## telugu_run.sh
 - Create telugu_run.sh for telugu
 - change paths in stages and change other files as required
-  
+- setup git lfs
+  - using db/.gitattributes
+  ```
+  data/** filter=lfs diff=lfs merge=lfs -text
+  data/**/* filter=lfs diff=lfs merge=lfs -text
+  telugu_data/** filter=lfs diff=lfs merge=lfs -text
+  telugu_data/** filter=lfs diff=lfs merge=lfs -text
+  ```
+
+### stage 0
+
+nohup ./run_telugu.sh > telugu_logs/stage0.log 2>&1 &
+
+### stage 1
+
+nohup ./run_telugu.sh > telugu_logs/stage1.log 2>&1 &
+
+### stage 2
+nohup ./run_telugu.sh > telugu_logs/stage2.log 2>&1 &
+tail -f telugu_logs/stage2.log
+
+### stage 3
+nohup ./run_telugu.sh > telugu_logs/stage3.log 2>&1 &
+tail -f telugu_logs/stage3.log
+
+### stage 4
+
+#### Text processing for language model
+- create telugu version of preprocessing scripts
+nohup ./clean_corpus_telugu.sh te.txt > telugu_clean.log 2>&1 &
+nohup ./clean_corpus_telugu.sh  > telugu_clean1.log 2>&1 &
+```
+sk5057@speech-rec-vm:~/asr_project/git_repo/lang_model/preprocessing$ gzip -c stage5_out_telugu.txt > ~/kaldi/egs/tamil_telugu_proj/s5_r3/db/telugu_text_processed.txt.gz
+
+```
 
 
+
+
+nohup ./run_telugu.sh > telugu_logs/stage4.log 2>&1 &
+tail -f telugu_logs/stage4.log
+
+- Setup git lfs for telugu_data versioning... couldn't add .txt.gz due to > 2GB. Added dummy file
+-
+### stage 5  
+nohup ./run_telugu.sh > telugu_logs/stage5.log 2>&1 &
+tail -f telugu_logs/stage5.log
+
+adding changes to db repo as well
+
+### stage 6  
+nohup ./run_telugu.sh > telugu_logs/stage6.log 2>&1 &
+tail -f telugu_logs/stage6.log
+
+1 less in logs?
+
+
+
+### stage 7  
+nohup ./run_telugu.sh > telugu_logs/stage7.log 2>&1 &
+tail -f telugu_logs/stage7.log
+
+### stage 8  
+nohup ./run_telugu.sh > telugu_logs/stage7.log 2>&1 &
+tail -f telugu_logs/stage7.log
+
+### stage 8  
+
+### stage 9  
+
+### stage 10  
+nohup ./run_telugu.sh > telugu_logs/stage10.log 2>&1 &
+tail -f telugu_logs/stage10.log
+
+
+error 
+
+https://groups.google.com/g/kaldi-help/c/b9os_OyHLvc
+
+run out of ram?
+  found that it was taking 50/50g
+  switched to n1-highmem-16 104gb ram and trying
+    went upto 61G
+    success!!
+
+### stage 11  
+using same config as above
+nohup ./run_telugu.sh > telugu_logs/stage11.log 2>&1 &
+tail -f telugu_logs/stage11.log
+
+### stage 12  
+using same config as above
+nohup ./run_telugu.sh > telugu_logs/stage12.log 2>&1 &
+tail -f telugu_logs/stage12.log
+
+### stage 13  
+using same config as above
+nohup ./run_telugu.sh > telugu_logs/stage13.log 2>&1 &
+tail -f telugu_logs/stage13.log
+
+### stage 14  
+using same config as above
+nohup ./run_telugu.sh > telugu_logs/stage14.log 2>&1 &
+tail -f telugu_logs/stage14.log
+
+### stage 15  
+back to old config
+nohup ./run_telugu.sh > telugu_logs/stage15.log 2>&1 &
+tail -f telugu_logs/stage15.log
+
+### stage 16  
+using same config as above
+nohup ./run_telugu.sh > telugu_logs/stage16.log 2>&1 &
+tail -f telugu_logs/stage16.log
+
+### stage 17  
+sudo nvidia-smi -c 3 ?? should we run this. running
+```
+root@speech-rec-vm:/home/sk5057_columbia_edu# nvidia-smi -c 3
+Set compute mode to EXCLUSIVE_PROCESS for GPU 00000000:00:04.0.
+All done.
+```
+
+
+sk5057@speech-rec-vm:~/kaldi/egs/tamil_telugu_proj/s5_r3$ nvidia-smi
+Tue Jun 14 17:01:39 2022       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 470.129.06   Driver Version: 470.129.06   CUDA Version: 11.4     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  Tesla K80           Off  | 00000000:00:04.0 Off |                    0 |
+| N/A   41C    P0    64W / 149W |      0MiB / 11441MiB |      0%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|  No running processes found                                                 |
++-----------------------------------------------------------------------------+
+
+
+nohup ./run_telugu.sh > telugu_logs/stage17.log 2>&1 &
+tail -f telugu_logs/stage17.log
+
+
+```
+sk5057@speech-rec-vm:~/kaldi/src/nnet3bin$ ./cuda-gpu-available 
+LOG ([5.5.1009~1-e4940]:main():cuda-gpu-available.cc:61) 
+
+### IS CUDA GPU AVAILABLE? 'speech-rec-vm' ###
+ERROR ([5.5.1009~1-e4940]:SelectGpuId():cu-device.cc:181) No CUDA GPU detected!, diagnostics: cudaError_t 30 : "unknown error", in cu-device.cc:181
+
+[ Stack-Trace: ]
+./cuda-gpu-available(kaldi::MessageLogger::LogMessage() const+0xb61) [0x563bc1e36f01]
+./cuda-gpu-available(kaldi::MessageLogger::LogAndThrow::operator=(kaldi::MessageLogger const&)+0x21) [0x563bc1d2c47f]
+./cuda-gpu-available(kaldi::CuDevice::SelectGpuId(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)+0x40f) [0x563bc1d2b64b]
+./cuda-gpu-available(main+0x1b6) [0x563bc1d25481]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xe7) [0x7f60c9e5cc87]
+./cuda-gpu-available(_start+0x2a) [0x563bc1d2512a]
+
+kaldi::KaldiFatalError
+LOG ([5.5.1009~1-e4940]:main():cuda-gpu-available.cc:97) ...
+### WE DID NOT GET A CUDA GPU!!! ###
+### If your system has a 'free' CUDA GPU, try re-installing latest 'CUDA toolkit' from NVidia (this updates GPU drivers too).
+### Otherwise 'nvidia-smi' shows the status of GPUs:
+### - The versions should match ('NVIDIA-SMI' and 'Driver Version'), otherwise reboot or reload kernel module,
+### - The GPU should be unused (no 'process' in list, low 'memory-usage' (<100MB), low 'gpu-fan' (<30%)),
+### - You should see your GPU (burnt GPUs may disappear from the list until reboot),
+```
+
+
+
+```
+root@speech-rec-vm:/home/sk5057/kaldi/src/nnet3bin# ./cuda-gpu-available 
+LOG ([5.5.1009~1-e4940]:main():cuda-gpu-available.cc:61) 
+
+### IS CUDA GPU AVAILABLE? 'speech-rec-vm' ###
+LOG ([5.5.1009~1-e4940]:SelectGpuId():cu-device.cc:238) CUDA setup operating under Compute Exclusive Mode.
+LOG ([5.5.1009~1-e4940]:FinalizeActiveGpu():cu-device.cc:338) The active GPU is [0]: Tesla K80	free:11313M, used:127M, total:11441M, free/total:0.988856 version 3.7
+### HURRAY, WE GOT A CUDA GPU FOR COMPUTATION!!! ##
+
+### Testing CUDA setup with a small computation (setup = cuda-toolkit + gpu-driver + kaldi):
+### Test OK!
+root@speech-rec-vm:/home/sk5057/kaldi/src/nnet3bin# exit
+exit
+sk5057_columbia_edu@speech-rec-vm:~$ sudo su
+root@speech-rec-vm:/home/sk5057_columbia_edu# su sk5057
+sk5057@speech-rec-vm:/home/sk5057_columbia_edu$ /home/sk5057/kaldi/src/nnet3bin
+bash: /home/sk5057/kaldi/src/nnet3bin: Is a directory
+sk5057@speech-rec-vm:/home/sk5057_columbia_edu$ cd /home/sk5057/kaldi/src/nnet3bin
+sk5057@speech-rec-vm:~/kaldi/src/nnet3bin$ ./cuda-gpu-available 
+LOG ([5.5.1009~1-e4940]:main():cuda-gpu-available.cc:61) 
+
+### IS CUDA GPU AVAILABLE? 'speech-rec-vm' ###
+LOG ([5.5.1009~1-e4940]:SelectGpuId():cu-device.cc:238) CUDA setup operating under Compute Exclusive Mode.
+LOG ([5.5.1009~1-e4940]:FinalizeActiveGpu():cu-device.cc:338) The active GPU is [0]: Tesla K80	free:11313M, used:127M, total:11441M, free/total:0.988856 version 3.7
+### HURRAY, WE GOT A CUDA GPU FOR COMPUTATION!!! ##
+
+### Testing CUDA setup with a small computation (setup = cuda-toolkit + gpu-driver + kaldi):
+### Test OK!
+```
+- for some reason when same is run with root, it started working :/
+
+
+Got results in the range of 17-24% WER
